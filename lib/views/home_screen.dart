@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ziya_attendance_ui/widgets/header_wideget.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
+import 'package:ziya_attendance_ui/widgets/home_appBar_widget.dart';
 import '../widgets/checkin_card.dart';
 import '../widgets/overview_section.dart';
 import '../widgets/dashboard_grid.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(60),
-            child: const HeaderWidget(),
+            child: const HomeAppBarWidget(),
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 10),
-                  const Text('"Good Morning ,\n Hemant Rangarajan"',
+                  const Text('"Good Morning ,\n ${TextConstants.userName}"',
                       style: TextStyle(color: Colors.grey, fontSize: 18)),
                   const SizedBox(height: 20),
                   const CheckInCard(),
@@ -47,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w700)),
                   const SizedBox(height: 10),
-                  const DashboardGrid(),
+                  const DashboardGridView(),
                 ],
               ),
             ),

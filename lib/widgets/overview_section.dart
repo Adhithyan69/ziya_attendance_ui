@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
 class OverviewSection extends StatelessWidget {
   const OverviewSection({super.key});
@@ -26,9 +28,9 @@ class OverviewSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _buildCard("Presence", "20", Colors.green,Colors.green),
-        _buildCard("Absence", "03", Colors.red,Colors.red),
-        _buildCard("Leaves", "02", Colors.orangeAccent,Colors.orangeAccent),
+        _buildCard(TextConstants.presence, TextConstants.presenceLength, appColors.presenceClr,appColors.presenceClr),
+        _buildCard(TextConstants.absence, TextConstants.absenceLength, appColors.absenceClr,appColors.absenceClr),
+        _buildCard(TextConstants.leaves,TextConstants.leavesLength, appColors.leavesClr,appColors.leavesClr),
       ],
     );
   }

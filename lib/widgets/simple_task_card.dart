@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ziya_attendance_ui/constants/color_constants.dart';
+
+import 'dottedDivider.dart';
 
 class SimpleTaskCard extends StatelessWidget {
   final String title;
@@ -23,7 +26,7 @@ class SimpleTaskCard extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(
-                color: Colors.green,
+                color: appColors.listHeadingsTextColor,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -40,7 +43,7 @@ class SimpleTaskCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 12,
                       height: 1.5,
-                      color: Colors.black87,
+                      color: appColors.listDescriptionTextColor,
                     ),
                   ),
                 ),
@@ -52,7 +55,7 @@ class SimpleTaskCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: appColors.buttonColor,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 10),
                     shape: RoundedRectangleBorder(
@@ -61,7 +64,7 @@ class SimpleTaskCard extends StatelessWidget {
                   ),
                   child: const Text(
                     "Start",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: appColors.selectedTextColor),
                   ),
                 ),
               ],
@@ -73,23 +76,4 @@ class SimpleTaskCard extends StatelessWidget {
       ),
     );
   }
-}
-Widget dottedDivider() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: List.generate(
-      60,
-          (_) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 1.5),
-        child: Container(
-          width: 2,
-          height: 2,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.grey,
-          ),
-        ),
-      ),
-    ),
-  );
 }

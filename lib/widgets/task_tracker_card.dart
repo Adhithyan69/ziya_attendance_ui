@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:ziya_attendance_ui/constants/color_constants.dart';
+
+import 'dottedDivider.dart';
 
 class TaskCard extends StatelessWidget {
   final String title;
@@ -34,7 +37,7 @@ class TaskCard extends StatelessWidget {
             children: [
               Text(title,
                   style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold, color: Colors.green)),
+                      fontSize: 16, fontWeight: FontWeight.bold, color: appColors.listHeadingsTextColor)),
               Text("Due Date: $dueDate", style: const TextStyle(fontSize: 10)),
             ],
           ),
@@ -167,22 +170,4 @@ class TaskCard extends StatelessWidget {
   }
 }
 
-Widget dottedDivider() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: List.generate(
-      60,
-          (_) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 1.5),
-        child: Container(
-          width: 2,
-          height: 2,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.grey,
-          ),
-        ),
-      ),
-    ),
-  );
-}
+

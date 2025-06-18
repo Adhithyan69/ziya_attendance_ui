@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ziya_attendance_ui/constants/color_constants.dart';
+
+import 'dottedDivider.dart';
 
 class OngoingPendingTaskCard extends StatelessWidget {
   final String title;
@@ -57,7 +60,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
-                    color: Colors.green,
+                    color: appColors.listHeadingsTextColor,
                   ),
                 ),
                 Text(
@@ -124,11 +127,11 @@ class OngoingPendingTaskCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor:appColors.buttonColor,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   ),
-                  child: Text(buttonText,style: TextStyle(color: Colors.white),),
+                  child: Text(buttonText,style: TextStyle(color: appColors.selectedTextColor),),
                 ),
               ],
             ),
@@ -139,23 +142,4 @@ class OngoingPendingTaskCard extends StatelessWidget {
       ),
     );
   }
-}
-Widget dottedDivider() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: List.generate(
-      60,
-          (_) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 1.5),
-        child: Container(
-          width: 2,
-          height: 2,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.grey,
-          ),
-        ),
-      ),
-    ),
-  );
 }

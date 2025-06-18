@@ -1,86 +1,286 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
-class CheckInCard extends StatefulWidget {
+import '../constants/color_constants.dart';
+import '../controller/checkin_card_controller.dart';
+import '../views/face_verification.screen.dart';
+import '../views/qr_verification_screen.dart';
+
+class CheckInCard extends StatelessWidget {
   const CheckInCard({super.key});
 
-  @override
-  State<CheckInCard> createState() => _CheckInCardState();
-}
-
-class _CheckInCardState extends State<CheckInCard> {
-  bool isCheckedIn = false;
-  String? checkInTime;
-  String? checkOutTime;
-
-  void handleCheckIn() {
-    setState(() {
-      isCheckedIn = true;
-      checkInTime = DateFormat('hh:mm a').format(DateTime.now());
-    });
+  void openCheckInDialog(BuildContext context) {
+    final provider = Provider.of<AttendanceProvider>(context, listen: false);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: const Icon(Icons.close, color: Colors.grey),
+                ),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Select Punch-In Type',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                'Are you working from home or on site today?',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.black54),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        provider.checkIn(onsite: true);
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => QrVerificationScreen(
+                              time: provider.checkInTime!,
+                              checkedIn: true,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        "On Site",
+                        style: TextStyle(color: appColors.unSelectedTextColor),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        provider.checkIn(onsite: false);
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => FaceVerificationScreen(
+                              time: provider.checkInTime!,
+                              checkedIn: true,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        "Work From Home",
+                        style: TextStyle(color: appColors.selectedTextColor),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
-  void handleCheckOut() {
-    setState(() {
-      isCheckedIn = false;
-      checkOutTime = DateFormat('hh:mm a').format(DateTime.now());
-    });
+  void openCheckOutDialog(BuildContext context) {
+    final provider = Provider.of<AttendanceProvider>(context, listen: false);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: const Icon(Icons.close, color: Colors.grey),
+                ),
+              ),
+              const Icon(Icons.warning_amber_rounded,
+                  size: 48, color: Colors.orange),
+              const SizedBox(height: 16),
+              const Text(
+                'Do you really want\nto checkout!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.orange,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        "Update Task",
+                        style: TextStyle(color: appColors.unSelectedTextColor),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        provider.checkOut();
+                        Navigator.pop(context);
+                        final isOnSite = provider.isOnsite;
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => isOnSite
+                                ? QrVerificationScreen(
+                                    time: provider.checkInTime!,
+                                    checkedIn: false,
+                                  )
+                                : FaceVerificationScreen(
+                                    time: provider.checkInTime!,
+                                    checkedIn: false,
+                                  ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        "Punch Out",
+                        style: TextStyle(color: appColors.selectedTextColor),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AttendanceProvider>(context);
     return Card(
-        color: Colors.blue.shade50.withOpacity(0.8),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      color: Colors.blue.shade50.withOpacity(0.8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 2,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              isCheckedIn
-                  ? "You are checked in at $checkInTime"
-                  : "You haven't Checked-in yet",
-              style: TextStyle(color: isCheckedIn ? Colors.green : Colors.red),
+              provider.isCheckedIn
+                  ? "Checked in at ${provider.checkInTime}"
+                  : TextConstants.haventCheckedText,
+              style: TextStyle(
+                  color: provider.isCheckedIn ? Colors.green : Colors.red),
             ),
-            if (checkOutTime != null)
-              Text(
-                "Last Checked out at $checkOutTime",
-                style: const TextStyle(color: Colors.blueGrey),
-              ),
-            const SizedBox(height: 12),
+            if (provider.checkOutTime != null)
+              Text("${TextConstants.checkedInText}${provider.checkOutTime}"),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: isCheckedIn ? null : handleCheckIn,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          isCheckedIn ? Colors.grey[300] :Colors.blue ,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      backgroundColor: provider.isCheckedIn
+                          ? appColors.secondaryButton
+                          : appColors.buttonColor,
                     ),
+                    onPressed: provider.isCheckedIn
+                        ? null
+                        : () => openCheckInDialog(context),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.input,size: 20,color: Colors.white,),
-                        Text("Check In",style: TextStyle(color: Colors.white),),
+                        Icon(
+                          Icons.input,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          "Punch In",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: 10),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: isCheckedIn ? handleCheckOut : null,
+                    onPressed: provider.isCheckedIn
+                        ? () => openCheckOutDialog(context)
+                        : null,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          isCheckedIn ? Colors.blue : Colors.grey[300],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      backgroundColor: provider.isCheckedIn
+                          ? appColors.buttonColor
+                          : appColors.secondaryButton,
                     ),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.output,size: 20,color: Colors.white,),
-                        Text("Check Out",style: TextStyle(color: Colors.white,)),
+                        Icon(
+                          Icons.output,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        Text("Punch Out",
+                            style: TextStyle(
+                              color: Colors.white,
+                            )),
                       ],
                     ),
                   ),

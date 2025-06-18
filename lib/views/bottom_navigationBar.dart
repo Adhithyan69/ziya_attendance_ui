@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ziya_attendance_ui/constants/color_constants.dart';
 import 'home_screen.dart';
 import 'history_screen.dart';
 import 'leave_screen.dart';
@@ -29,8 +30,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
         backgroundColor: Colors.white,
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: appColors.buttonColor,
+        unselectedItemColor:Colors.grey,
         onTap: (index) {
           setState(() {
             _currentIndex = index;

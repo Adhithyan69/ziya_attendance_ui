@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
-class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({super.key});
+class HomeAppBarWidget extends StatelessWidget {
+  const HomeAppBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,20 +27,28 @@ class HeaderWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Row(
                   children: [
+
                     Container(
                       height: 50,
                       padding: EdgeInsets.symmetric(horizontal: 12),
-                      child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQiUvtYCuHnxrQ9iJVqomIDZ-QUVdSUwyKgQ&s",
+                      child: TextConstants.profileImageUrl != null &&
+                          TextConstants.profileImageUrl!.isNotEmpty
+                          ? Image.network(
+                        TextConstants.profileImageUrl!,
                         height: 30,
-                      ),
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container();
+                        },
+                      )
+                          : Container(),
                     ),
+
                     SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Hemant Rangarajan",
+                          TextConstants.userName,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -46,7 +56,7 @@ class HeaderWidget extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Full-stack Developer",
+                          TextConstants.userField,
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.white70,
@@ -70,18 +80,28 @@ class HeaderWidget extends StatelessWidget {
         ),
         // SizedBox(width: 20,),
         Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
+          padding: EdgeInsets.all(5),
+          decoration: const BoxDecoration(
+            color: appColors.buttonColor,
             shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 4,
-              )
+          ),
+          child: Stack(
+            alignment: Alignment.topRight,
+            children: [
+              const Icon(Icons.notifications, size: 25, color: Colors.white),
+              Positioned(
+                right: 0,
+                child: Container(
+                  width: 8,
+                  height: 8,
+                  decoration: const BoxDecoration(
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
             ],
           ),
-          padding: EdgeInsets.all(8),
-          child: Icon(Icons.notifications, color: Colors.blue),
         ),
       ],
     );
