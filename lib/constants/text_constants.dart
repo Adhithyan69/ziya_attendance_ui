@@ -15,5 +15,4 @@ class TextConstants{
   static const presenceLength="20";
   static const absenceLength="03";
   static const leavesLength="02";
-
 }

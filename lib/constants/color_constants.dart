@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class appColors {
   static const Color buttonColor = Colors.blue;
   static const Color primaryColor = Colors.black;
+  static const Color secondaryColor = Colors.white;
   static Color secondaryButton = Colors.grey[300]!;
   static const Color selectedTextColor = Colors.white;
   static const Color unSelectedTextColor = Colors.black;
@@ -23,4 +24,7 @@ class appColors {
   static const Color presenceClr = Colors.green;
   static const Color absenceClr = Colors.red;
   static const Color leavesClr = Colors.orangeAccent;
+  static const Color leavesOverviewContClr = Colors.blue;
+  static const Color leavesOverviewIconClr = Colors.blue;
+  static  Color warningClr = Colors.brown[600]!;
 }

@@ -6,6 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/forgot_controller.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/login_controller.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/signUp_controller.dart';
+import 'package:ziya_attendance_ui/controller/dashboard_controllers/leave_dashboard_controller.dart';
+import 'package:ziya_attendance_ui/controller/dashboard_controllers/leaves_Request_controller.dart';
 import 'package:ziya_attendance_ui/controller/task_controller.dart';
 import 'package:ziya_attendance_ui/views/authentication/login_screen.dart';
 import 'package:ziya_attendance_ui/views/authentication/signUp_screen.dart';
@@ -28,6 +30,8 @@ void main() async {
         ChangeNotifierProvider(create: (context) => LoginController()),
         ChangeNotifierProvider(create: (context) => SignUpController()),
         ChangeNotifierProvider(create: (context) => ForgotPasswordController()),
+        ChangeNotifierProvider(create: (context) => LeaveRequestController()),
+        ChangeNotifierProvider(create: (context) => LeaveDashboardController()),
       ],
       child: MyApp(isLoggedIn: isLoggedIn),
     ),
