@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+import '../constants/color_constants.dart';
+import '../constants/text_constants.dart';
 
 class AttendanceCalendar extends StatelessWidget {
   final Map<DateTime, Color> dateColors;
@@ -21,7 +23,7 @@ class AttendanceCalendar extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade300, width: 2),
+                border: Border.all(color: AppColors.calendarBorder, width: 2),
                 borderRadius: BorderRadius.circular(12),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -41,7 +43,7 @@ class AttendanceCalendar extends StatelessWidget {
                     },
                   ),
                   Text(
-                    DateFormat('MMMM yyyy').format(focusedDay),
+                    DateFormat(TextConstants.monthYearFormat).format(focusedDay),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -65,7 +67,7 @@ class AttendanceCalendar extends StatelessWidget {
             const SizedBox(height: 8),
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade300, width: 2),
+                border: Border.all(color: AppColors.calendarBorder, width: 2),
                 borderRadius: BorderRadius.circular(12),
               ),
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
@@ -78,13 +80,13 @@ class AttendanceCalendar extends StatelessWidget {
                 onPageChanged: (newFocusedDay) {
                   focusedDayNotifier.value = newFocusedDay;
                 },
-                daysOfWeekStyle: const DaysOfWeekStyle(
+                daysOfWeekStyle: DaysOfWeekStyle(
                   weekdayStyle: TextStyle(
-                    color: Colors.blue,
+                    color: AppColors.calendarWeekday,
                     fontWeight: FontWeight.bold,
                   ),
                   weekendStyle: TextStyle(
-                    color: Colors.blue,
+                    color: AppColors.calendarWeekend,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -95,8 +97,7 @@ class AttendanceCalendar extends StatelessWidget {
                 ),
                 calendarBuilders: CalendarBuilders(
                   defaultBuilder: (context, day, _) {
-                    final color =
-                    dateColors[DateTime(day.year, day.month, day.day)];
+                    final color = dateColors[DateTime(day.year, day.month, day.day)];
 
                     return Container(
                       height: 30,

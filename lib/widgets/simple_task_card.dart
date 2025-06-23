@@ -27,7 +27,7 @@ class SimpleTaskCard extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(
-                color: appColors.listHeadingsTextColor,
+                color: AppColors.listHeadingsTextColor,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -44,7 +44,7 @@ class SimpleTaskCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 12,
                       height: 1.5,
-                      color: appColors.listDescriptionTextColor,
+                      color: AppColors.listDescriptionTextColor,
                     ),
                   ),
                 ),
@@ -56,7 +56,7 @@ class SimpleTaskCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: appColors.buttonColor,
+                    backgroundColor: AppColors.buttonColor,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 10),
                     shape: RoundedRectangleBorder(
@@ -65,7 +65,7 @@ class SimpleTaskCard extends StatelessWidget {
                   ),
                   child: const Text(
                     TextConstants.start,
-                    style: TextStyle(color: appColors.selectedTextColor),
+                    style: TextStyle(color: AppColors.selectedTextColor),
                   ),
                 ),
               ],

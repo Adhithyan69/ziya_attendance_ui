@@ -10,12 +10,12 @@ import '../../views/dashboard_views/reports_screen.dart';
 
 class DashboardController extends ChangeNotifier {
   final List<DashboardItem> _items = [
-    DashboardItem(label: "Attendance", icon: Icons.calendar_month, color: appColors.dashboardAttendanceColor),
-    DashboardItem(label: "Leaves", icon: Icons.logout, color: appColors.dashboardLeavesColor),
-    DashboardItem(label: "Leave Status", icon: Icons.pie_chart, color: appColors.dashboardLeavesStatusColor),
-    DashboardItem(label: "Holiday List", icon: Icons.checklist_sharp, color: appColors.dashboardHolidayColor),
-    DashboardItem(label: "Payslip", icon: Icons.my_library_books, color: appColors.dashboardPayslipColor),
-    DashboardItem(label: "Reports", icon: Icons.show_chart, color: appColors.dashboardReportsColor),
+    DashboardItem(label: "Attendance", icon: Icons.calendar_month, color: AppColors.dashboardAttendanceColor),
+    DashboardItem(label: "Leaves", icon: Icons.logout, color: AppColors.dashboardLeavesColor),
+    DashboardItem(label: "Leave Status", icon: Icons.pie_chart, color: AppColors.dashboardLeavesStatusColor),
+    DashboardItem(label: "Holiday List", icon: Icons.checklist_sharp, color: AppColors.dashboardHolidayColor),
+    DashboardItem(label: "Payslip", icon: Icons.my_library_books, color: AppColors.dashboardPayslipColor),
+    DashboardItem(label: "Reports", icon: Icons.show_chart, color: AppColors.dashboardReportsColor),
   ];
 
   List<DashboardItem> get items => _items;

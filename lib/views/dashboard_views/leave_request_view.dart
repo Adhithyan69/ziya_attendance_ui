@@ -36,7 +36,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                 TextConstants.applyForLeave,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: appColors.primaryColor,
+                  color: AppColors.primaryColor,
                   fontSize: 25,
                 ),
               ),
@@ -77,7 +77,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
               children: [
                 Expanded(
                   child: Card(
-                    color: appColors.secondaryColor,
+                    color: AppColors.secondaryColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
@@ -89,13 +89,13 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                           const Icon(
                             Icons.logout_rounded,
                             size: 15,
-                            color: appColors.leaveScreenTextColor,
+                            color: AppColors.leaveScreenTextColor,
                           ),
                           const SizedBox(width: 6),
                           const Text(
                             TextConstants.leaveType,
                             style: TextStyle(
-                                color: appColors.leaveScreenTextColor),
+                                color: AppColors.leaveScreenTextColor),
                           ),
                         ],
                       ),
@@ -115,10 +115,10 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
               child: ElevatedButton(
                 onPressed: _submit,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: appColors.buttonColor),
+                    backgroundColor: AppColors.buttonColor),
                 child: const Text(
                   TextConstants.submit,
-                  style: TextStyle(color: appColors.selectedTextColor),
+                  style: TextStyle(color: AppColors.selectedTextColor),
                 ),
               ),
             )
@@ -134,7 +134,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
       text,
       style: const TextStyle(
         fontWeight: FontWeight.bold,
-        color: appColors.primaryColor,
+        color: AppColors.primaryColor,
       ),
     ),
   );
@@ -148,7 +148,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
         prefixIcon: Icon(icon, size: 18),
         hintText: value,
         hintStyle: const TextStyle(
-          color: appColors.leaveScreenTextColor,
+          color: AppColors.leaveScreenTextColor,
         ),
         border: InputBorder.none,
       ),
@@ -174,13 +174,13 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
           child: TextField(
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.calendar_month,
-                  color: appColors.leaveScreenTextColor),
+                  color: AppColors.leaveScreenTextColor),
               hintText: selectedDate == null
                   ? hint
                   : selectedDate.toLocal().toString().split(' ')[0],
               border: InputBorder.none,
               hintStyle: const TextStyle(
-                color: appColors.leaveScreenTextColor,
+                color: AppColors.leaveScreenTextColor,
               ),
             ),
           ),
@@ -203,7 +203,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
               Text(
                 _leaveType.isEmpty ? TextConstants.chooseType : _leaveType,
                 style: const TextStyle(
-                  color: appColors.leaveScreenTextColor,
+                  color: AppColors.leaveScreenTextColor,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -211,9 +211,9 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Icon(Icons.arrow_drop_up,
-                      color: appColors.leaveScreenTextColor),
+                      color: AppColors.leaveScreenTextColor),
                   const Icon(Icons.arrow_drop_down,
-                      color: appColors.leaveScreenTextColor),
+                      color: AppColors.leaveScreenTextColor),
                 ],
               ),
             ],
@@ -258,7 +258,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
       decoration: const InputDecoration(
         hintText: TextConstants.textArea,
         hintStyle: TextStyle(
-          color: appColors.leaveScreenTextColor,
+          color: AppColors.leaveScreenTextColor,
         ),
         border: InputBorder.none,
       ),
@@ -273,9 +273,9 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
       readOnly: true,
       decoration: InputDecoration(
         prefixIcon:
-        Icon(Icons.attach_file, color: appColors.leaveScreenTextColor),
+        Icon(Icons.attach_file, color: AppColors.leaveScreenTextColor),
         hintText: TextConstants.attachmentOptional,
-        hintStyle: TextStyle(color: appColors.leaveScreenTextColor),
+        hintStyle: TextStyle(color: AppColors.leaveScreenTextColor),
         border: InputBorder.none,
       ),
     ),

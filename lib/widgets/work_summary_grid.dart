@@ -70,7 +70,7 @@ class ProductivityDashboard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(item.icon,
-                          color: appColors.dashboardGridItemColor, size: 30),
+                          color: AppColors.dashboardGridItemColor, size: 30),
                       const SizedBox(width: 10),
                       Expanded(
                         child: Column(
@@ -79,7 +79,7 @@ class ProductivityDashboard extends StatelessWidget {
                             Text(item.title,
                                 style: const TextStyle(
                                   fontSize: 9.2,
-                                  color: appColors.dashboardGridTextColor,
+                                  color: AppColors.dashboardGridTextColor,
                                   fontWeight: FontWeight.w500,
                                   overflow: TextOverflow.ellipsis,
                                 )),
@@ -87,7 +87,7 @@ class ProductivityDashboard extends StatelessWidget {
                             Text(item.subtitle,
                                 style: const TextStyle(
                                   fontSize: 15,
-                                  color: appColors.dashboardGridTextColor,
+                                  color: AppColors.dashboardGridTextColor,
                                   fontWeight: FontWeight.bold,
                                   overflow: TextOverflow.ellipsis,
                                 )),

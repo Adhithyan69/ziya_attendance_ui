@@ -24,7 +24,7 @@ class UpcomingLeaveCard extends StatelessWidget {
     final formattedEnd = DateFormat.yMMMd().format(end);
 
     return Card(
-      color: appColors.secondaryColor,
+      color: AppColors.secondaryColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       elevation: 2,
       child: Padding(
@@ -48,7 +48,7 @@ class UpcomingLeaveCard extends StatelessWidget {
                 ),
                 Chip(
                   label: Text(status),
-                  backgroundColor: appColors.secondaryColor,
+                  backgroundColor: AppColors.secondaryColor,
                 ),
               ],
             ),
@@ -58,7 +58,7 @@ class UpcomingLeaveCard extends StatelessWidget {
               color: Colors.yellow[100],
               child: Row(
                 children: [
-                  Icon(Icons.error_outline, color: appColors.warningClr),
+                  Icon(Icons.error_outline, color: AppColors.warningClr),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Column(
@@ -68,7 +68,7 @@ class UpcomingLeaveCard extends StatelessWidget {
                           TextConstants.pendingApprovalTitle,
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
-                            color: appColors.warningClr,
+                            color: AppColors.warningClr,
                           ),
                         ),
                         const Text(

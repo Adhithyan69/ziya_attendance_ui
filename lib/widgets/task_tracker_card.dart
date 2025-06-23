@@ -38,7 +38,7 @@ class TaskCard extends StatelessWidget {
                   style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: appColors.listHeadingsTextColor)),
+                      color: AppColors.listHeadingsTextColor)),
               Text("${TextConstants.ongoingDueDate} $dueDate",
                   style: const TextStyle(fontSize: 10)),
             ],

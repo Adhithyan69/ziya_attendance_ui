@@ -60,7 +60,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
-                    color: appColors.listHeadingsTextColor,
+                    color: AppColors.listHeadingsTextColor,
                   ),
                 ),
                 Text(
@@ -130,7 +130,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: appColors.buttonColor,
+                    backgroundColor: AppColors.buttonColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                     padding:
@@ -138,7 +138,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
                   ),
                   child: Text(
                     buttonText,
-                    style: TextStyle(color: appColors.selectedTextColor),
+                    style: TextStyle(color: AppColors.selectedTextColor),
                   ),
                 ),
               ],

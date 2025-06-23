@@ -20,7 +20,7 @@ class LeaveStatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: appColors.secondaryColor,
+      color: AppColors.secondaryColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       elevation: 2,
       child: Padding(
@@ -32,7 +32,7 @@ class LeaveStatCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(title, style: const TextStyle(fontSize: 12)),
-                Icon(icon, color: appColors.leavesOverviewIconClr),
+                Icon(icon, color: AppColors.leavesOverviewIconClr),
               ],
             ),
             const SizedBox(height: 14),

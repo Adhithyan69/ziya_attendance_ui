@@ -47,7 +47,7 @@ class _PunchInOutSuccessScreenState extends State<PunchInOutSuccessScreen>
 Widget build(BuildContext context) {
   final bool isCheckedIn = widget.checkedIn;
 
-  final Color statusColor = isCheckedIn ? appColors.successGreen : appColors.successOrange;
+  final Color statusColor = isCheckedIn ? AppColors.successGreen : AppColors.successOrange;
   final String statusText = isCheckedIn ? TextConstants.punchInSuccessFull : TextConstants.punchOutSuccessFull;
 
   return Scaffold(

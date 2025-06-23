@@ -82,7 +82,7 @@ class HomeAppBarWidget extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(5),
           decoration: const BoxDecoration(
-            color: appColors.buttonColor,
+            color: AppColors.buttonColor,
             shape: BoxShape.circle,
           ),
           child: Stack(

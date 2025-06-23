@@ -68,7 +68,7 @@ class _TabBarSectionState extends State<TabBarSection>
                   padding:
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
-                    color: selected ? appColors.buttonColor : Colors.white,
+                    color: selected ? AppColors.buttonColor : Colors.white,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.grey.shade300),
                   ),
@@ -77,8 +77,8 @@ class _TabBarSectionState extends State<TabBarSection>
                       Icon(
                         tabs[index]['icon'],
                         color: selected
-                            ? appColors.selectedTextColor
-                            : appColors.unSelectedTextColor,
+                            ? AppColors.selectedTextColor
+                            : AppColors.unSelectedTextColor,
                         size: 18,
                       ),
                       const SizedBox(width: 8),

@@ -20,7 +20,7 @@ class LeaveOverviewChart extends StatelessWidget {
 
     return Card(
       elevation: 2,
-      color: appColors.secondaryColor,
+      color: AppColors.secondaryColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -52,7 +52,7 @@ class LeaveOverviewChart extends StatelessWidget {
                         height: barHeight,
                         width: 40,
                         decoration: BoxDecoration(
-                          color: appColors.leavesOverviewContClr,
+                          color: AppColors.leavesOverviewContClr,
                         ),
                       ),
                       const SizedBox(height: 6),
@@ -65,7 +65,7 @@ class LeaveOverviewChart extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.circle, color: appColors.leavesOverviewContClr, size: 12),
+                Icon(Icons.circle, color: AppColors.leavesOverviewContClr, size: 12),
                 const SizedBox(width: 8),
                 const Text(
                   TextConstants.leaveDaysTaken,

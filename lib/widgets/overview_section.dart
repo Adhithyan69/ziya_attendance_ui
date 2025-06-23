@@ -28,9 +28,9 @@ class OverviewSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _buildCard(TextConstants.presence, TextConstants.presenceLength, appColors.presenceClr,appColors.presenceClr),
-        _buildCard(TextConstants.absence, TextConstants.absenceLength, appColors.absenceClr,appColors.absenceClr),
-        _buildCard(TextConstants.leaves,TextConstants.leavesLength, appColors.leavesClr,appColors.leavesClr),
+        _buildCard(TextConstants.presence, TextConstants.presenceLength, AppColors.presenceClr,AppColors.presenceClr),
+        _buildCard(TextConstants.absence, TextConstants.absenceLength, AppColors.absenceClr,AppColors.absenceClr),
+        _buildCard(TextConstants.leaves,TextConstants.leavesLength, AppColors.leavesClr,AppColors.leavesClr),
       ],
     );
   }

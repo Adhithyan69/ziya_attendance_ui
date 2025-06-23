@@ -33,7 +33,7 @@ class _FaceVerificationScreenState extends State<FaceVerificationScreen> {
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: appColors.unSelectedTextColor,
+                    color: AppColors.unSelectedTextColor,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -68,7 +68,7 @@ class _FaceVerificationScreenState extends State<FaceVerificationScreen> {
                     height: 40,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: appColors.buttonColor,
+                        backgroundColor: AppColors.buttonColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),

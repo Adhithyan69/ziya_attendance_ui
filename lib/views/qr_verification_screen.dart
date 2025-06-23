@@ -32,7 +32,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: appColors.unSelectedTextColor,
+                    color: AppColors.unSelectedTextColor,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -68,7 +68,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
                     height: 40,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: appColors.buttonColor,
+                        backgroundColor: AppColors.buttonColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),

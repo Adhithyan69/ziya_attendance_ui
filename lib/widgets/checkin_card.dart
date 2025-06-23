@@ -66,7 +66,7 @@ class CheckInCard extends StatelessWidget {
                       ),
                       child: const Text(
                         TextConstants.onSite,
-                        style: TextStyle(color: appColors.unSelectedTextColor),
+                        style: TextStyle(color: AppColors.unSelectedTextColor),
                       ),
                     ),
                   ),
@@ -95,7 +95,7 @@ class CheckInCard extends StatelessWidget {
                       ),
                       child: const Text(
                         TextConstants.wfh,
-                        style: TextStyle(color: appColors.selectedTextColor),
+                        style: TextStyle(color: AppColors.selectedTextColor),
                       ),
                     ),
                   ),
@@ -155,7 +155,7 @@ class CheckInCard extends StatelessWidget {
                       ),
                       child: const Text(
                         TextConstants.updateTask,
-                        style: TextStyle(color: appColors.unSelectedTextColor),
+                        style: TextStyle(color: AppColors.unSelectedTextColor),
                       ),
                     ),
                   ),
@@ -191,7 +191,7 @@ class CheckInCard extends StatelessWidget {
                       ),
                       child: const Text(
                         TextConstants.punchOut,
-                        style: TextStyle(color: appColors.selectedTextColor),
+                        style: TextStyle(color: AppColors.selectedTextColor),
                       ),
                     ),
                   ),
@@ -234,8 +234,8 @@ class CheckInCard extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
                       backgroundColor: provider.isCheckedIn
-                          ? appColors.secondaryButton
-                          : appColors.buttonColor,
+                          ? AppColors.secondaryButton
+                          : AppColors.buttonColor,
                     ),
                     onPressed: provider.isCheckedIn
                         ? null
@@ -266,8 +266,8 @@ class CheckInCard extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
                       backgroundColor: provider.isCheckedIn
-                          ? appColors.buttonColor
-                          : appColors.secondaryButton,
+                          ? AppColors.buttonColor
+                          : AppColors.secondaryButton,
                     ),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

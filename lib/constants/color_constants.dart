@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class appColors {
+class AppColors {
   static const Color buttonColor = Colors.blue;
   static const Color primaryColor = Colors.black;
   static const Color secondaryColor = Colors.white;
@@ -28,4 +28,12 @@ class appColors {
   static const Color leavesOverviewContClr = Colors.blue;
   static const Color leavesOverviewIconClr = Colors.blue;
   static  Color warningClr = Colors.brown[600]!;
+  static const Color tagOfficeText = Colors.blue;
+  static const Color tagOfficeBg = Color(0xFFD0E8FF);
+  static const Color tagSelfieText = Colors.orange;
+  static const Color tagSelfieBg = Color(0xFFFFE0B2);
+  static const Color calendarBorder = Color(0xFFDADADA);
+  static const Color calendarWeekday = Colors.blue;
+  static const Color calendarWeekend = Colors.blue;
+  static const Color tagBorderClr = Colors.blue;
 }

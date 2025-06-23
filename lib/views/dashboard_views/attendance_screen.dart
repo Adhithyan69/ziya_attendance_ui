@@ -17,10 +17,10 @@ class AttendanceScreen extends StatelessWidget {
     final focusedDayNotifier = ValueNotifier<DateTime>(DateTime.now());
 
     return Scaffold(
-      backgroundColor: appColors.secondaryColor,
+      backgroundColor: AppColors.secondaryColor,
       appBar: AppBar(
-        backgroundColor: appColors.secondaryColor,
-        title: const Text('Attendance Calendar'),
+        backgroundColor: AppColors.secondaryColor,
+        title: const Text(TextConstants.attendanceCalendar),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios),
@@ -37,41 +37,33 @@ class AttendanceScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Card(
-              color: appColors.secondaryColor,
+              color: AppColors.secondaryColor,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Overview',
+                      TextConstants.overView,
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
                           color: Colors.black),
                     ),
                     const Text(
-                      'Total Days: 31',
+                      TextConstants.totalDays,
                       style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                     Row(
                       children: [
-                        _buildOverviewCard(
-                            TextConstants.presence,
-                            TextConstants.presenceLength,
-                            appColors.presenceClr),
-                        _buildOverviewCard(
-                            TextConstants.absence,
-                            TextConstants.absenceLength,
-                            appColors.absenceClr),
-                        _buildOverviewCard(
-                            TextConstants.leaves,
-                            TextConstants.leavesLength,
-                            appColors.leavesClr),
-                        _buildOverviewCard(
-                            TextConstants.late,
-                            TextConstants.lateLength,
-                            appColors.lateClr),
+                        _buildOverviewCard(TextConstants.presence,
+                            TextConstants.presenceLength, AppColors.presenceClr),
+                        _buildOverviewCard(TextConstants.absence,
+                            TextConstants.absenceLength, AppColors.absenceClr),
+                        _buildOverviewCard(TextConstants.leaves,
+                            TextConstants.leavesLength, AppColors.leavesClr),
+                        _buildOverviewCard(TextConstants.late,
+                            TextConstants.lateLength, AppColors.lateClr),
                       ],
                     ),
                     const SizedBox(height: 10),
@@ -82,7 +74,7 @@ class AttendanceScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'June 18, 2025',
+              TextConstants.june18,
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
@@ -92,11 +84,12 @@ class AttendanceScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Status', style: TextStyle(fontSize: 15)),
+                const Text(TextConstants.status,
+                    style: TextStyle(fontSize: 15)),
                 Chip(
-                  label: const Text('Present',
-                      style: TextStyle(color: Colors.green)),
-                  color: WidgetStatePropertyAll(Colors.green.shade100),
+                  label: const Text(TextConstants.present,
+                      style: TextStyle(color: AppColors.presenceClr)),
+                  color: WidgetStatePropertyAll(AppColors.presenceClr.withOpacity(0.3)),
                   side: BorderSide.none,
                 ),
               ],
@@ -105,45 +98,49 @@ class AttendanceScreen extends StatelessWidget {
             const SizedBox(height: 10),
             Row(
               children: [
-                _buildCheckInfo(
-                    Icons.alarm_on, "Check-in", "09:30 AM", Colors.green),
+                _buildCheckInfo(Icons.alarm_on, TextConstants.checkIn,
+                    TextConstants.checkInTime, AppColors.presenceClr),
                 const Spacer(),
                 Row(
-                  children: [
-                    SizedBox(
-                      width: 50,
-                        child: Divider(thickness: 1.2,)),
-                    const Icon(Icons.arrow_forward_ios,
+                  children: const [
+                    SizedBox(width: 50, child: Divider(thickness: 1.2)),
+                    Icon(Icons.arrow_forward_ios,
                         size: 16, color: Colors.grey),
                   ],
                 ),
                 const Spacer(),
-                _buildCheckInfo(
-                    Icons.alarm_off, "Check-out", "06:00 PM", Colors.green),
+                _buildCheckInfo(Icons.alarm_off, TextConstants.checkOut,
+                    TextConstants.checkOutTime, AppColors.presenceClr),
               ],
             ),
             const SizedBox(height: 12),
             Row(
               children: [
                 _buildTagBox(
-                    "Work Mode", "Office", Colors.blue.shade100, Colors.blue.shade800),
+                    TextConstants.workMode,
+                    TextConstants.office,
+                    AppColors.tagOfficeBg,
+                    AppColors.tagOfficeText),
                 const Spacer(),
-                _buildTagBox("Verification", "Selfie", Colors.orange.shade100,
-                    Colors.orange),
+                _buildTagBox(
+                    TextConstants.verification,
+                    TextConstants.selfie,
+                    AppColors.tagSelfieBg,
+                    AppColors.tagSelfieText),
               ],
             ),
             const SizedBox(height: 12),
             _buildInfoBox(
               icon: Icons.person_pin_circle_outlined,
-              label: "Location",
-              value: "Lat: 13.05, Long: 80.24",
+              label: TextConstants.location,
+              value: TextConstants.locationValue,
               iconColor: Colors.red,
             ),
             const SizedBox(height: 8),
             _buildInfoBox(
               icon: Icons.text_snippet_outlined,
-              label: "Notes",
-              value: "Worked On UI Bug Fixing",
+              label: TextConstants.notes,
+              value: TextConstants.workedNote,
               iconColor: Colors.black,
             ),
           ],
@@ -152,8 +149,7 @@ class AttendanceScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildOverviewCard(
-      String label, String count, Color color) {
+  Widget _buildOverviewCard(String label, String count, Color color) {
     return Expanded(
       child: Card(
         color: Colors.white,
@@ -197,7 +193,7 @@ class AttendanceScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        border: Border(left: BorderSide(color: Colors.blue, width: 2)),
+        border: Border(left: BorderSide(color: AppColors.tagBorderClr, width: 2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -232,7 +228,7 @@ class AttendanceScreen extends StatelessWidget {
     required Color iconColor,
   }) {
     return Card(
-      color: appColors.secondaryColor,
+      color: AppColors.secondaryColor,
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -264,10 +260,10 @@ class AttendanceScreen extends StatelessWidget {
 
   Widget _buildPieChart(Map<String, int> summary) {
     final colors = {
-      'Present': Colors.green,
-      'Absent': Colors.red,
-      'Leave': Colors.orange,
-      'Late': Colors.blue,
+      TextConstants.presence: AppColors.presenceClr,
+      TextConstants.absence: AppColors.absenceClr,
+      TextConstants.leaves: AppColors.leavesClr,
+      TextConstants.late: AppColors.lateClr,
     };
 
     return Container(

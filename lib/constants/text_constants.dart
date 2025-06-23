@@ -14,7 +14,7 @@ class TextConstants{
  static const String? profileImageUrl ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQiUvtYCuHnxrQ9iJVqomIDZ-QUVdSUwyKgQ&s"; // Or null
   static const presence="Presence";
   static const absence="Absence";
-  static const leaves="Leaves";
+  static const leaves="Leave";
   static const late="Late";
   static const presenceLength="20";
   static const absenceLength="03";
@@ -136,5 +136,23 @@ class TextConstants{
   static const totalDays = "Total days";
   static const remaining = "Remaining";
   static const qLabelPrefix = "Q";
+  //AttendanceScreen
+  static const String workMode = "Work Mode";
+  static const String verification = "Verification";
+  static const String selfie = "Selfie";
+  static const String location = "Location";
+  static const String locationValue = "Lat:13.05,Long:80.24";
+  static const String notes = "Notes";
+  static const String checkIn = "Check-in";
+  static const String checkInTime = "09:30 AM";
+  static const String checkOut = "Check-out";
+  static const String checkOutTime = "06:00 PM";
+  static const String present = "Present";
+  static const String office = "Office";
+  static const String workedNote = "Worked On UI Bug Fixing";
+  static const String june18 = "June 18, 2025";
+  static const String monthYearFormat = "MMMM yyyy";
+  static const String attendanceCalendar = "Attendance Calendar";
+
 
 }
