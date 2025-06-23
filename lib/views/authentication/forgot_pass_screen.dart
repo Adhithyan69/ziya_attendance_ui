@@ -24,19 +24,32 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       setState(() => _isLoading = true);
 
       _controller.resetPassword(
+        context: context,
         email: _emailController.text,
-        scaffoldKey: _scaffoldKey,
         onSuccess: () {
           setState(() => _isLoading = false);
-          Navigator.pop(context);
+
         },
         onError: (message) {
           setState(() => _isLoading = false);
-          _scaffoldKey.currentState?.showSnackBar(SnackBar(content: Text(message)));
+          showDialog(
+            context: context,
+            builder: (ctx) => AlertDialog(
+              title: const Text("Error"),
+              content: Text(message),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: const Text("OK"),
+                ),
+              ],
+            ),
+          );
         },
       );
     }
   }
+
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 import 'package:ziya_attendance_ui/models/prodectivity_dashB_item.dart';
 
 class ProductivityDashboard extends StatelessWidget {
@@ -9,34 +10,34 @@ class ProductivityDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     List<ProdectivityDashbItem> summaryItem = [
       ProdectivityDashbItem(
-        title: 'Total Working \nDays',
+        title: TextConstants.totalWorkingDays,
         icon: Icons.calendar_month,
-        subtitle: "20",
+        subtitle: TextConstants.totalWorkingDaysValue,
       ),
       ProdectivityDashbItem(
-        title: 'Total Hours \nworked',
+        title: TextConstants.totalHoursWorked,
         icon: Icons.access_time,
-        subtitle: '160 hours',
+        subtitle: TextConstants.totalHoursWorkedValue,
       ),
       ProdectivityDashbItem(
-        title: 'Average Daily \nHours',
+        title: TextConstants.averageDailyHours,
         icon: Icons.av_timer,
-        subtitle: '8.0 hours',
+        subtitle: TextConstants.averageDailyHoursValue,
       ),
       ProdectivityDashbItem(
-        title: 'Productivity \nIndicator',
+        title: TextConstants.productivityIndicator,
         icon: Icons.bar_chart,
-        subtitle: '80%',
+        subtitle: TextConstants.productivityIndicatorValue,
       ),
       ProdectivityDashbItem(
-        title: 'Projects Involved',
+        title: TextConstants.projectsInvolved,
         icon: Icons.person,
-        subtitle: 'Revenue\nDashboard',
+        subtitle: TextConstants.projectsInvolvedValue,
       ),
       ProdectivityDashbItem(
-        title: 'Leave Taken',
+        title: TextConstants.leaveTaken,
         icon: Icons.library_books_outlined,
-        subtitle: '2 days',
+        subtitle: TextConstants.leaveTakenValue,
       ),
     ];
 

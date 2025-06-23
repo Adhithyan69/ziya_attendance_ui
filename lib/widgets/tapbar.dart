@@ -7,6 +7,7 @@ import '../widgets/task_tracker_card.dart';
 import '../widgets/ongoing_pending_task_widget.dart';
 import '../widgets/work_summary_grid.dart';
 import '../constants/color_constants.dart';
+import '../constants/text_constants.dart';
 
 class TabBarSection extends StatefulWidget {
   const TabBarSection({super.key});
@@ -19,11 +20,11 @@ class _TabBarSectionState extends State<TabBarSection>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  final List<Map<String, dynamic>> tabs = const [
-    {'icon': Icons.calendar_today, 'label': 'My Tasks'},
-    {'icon': Icons.hourglass_bottom, 'label': 'Task Tracker'},
-    {'icon': Icons.loop, 'label': 'Ongoing & Pending Tasks'},
-    {'icon': Icons.wallet, 'label': 'Work Summary'},
+  final List<Map<String, dynamic>> tabs = [
+    {'icon': Icons.calendar_today, 'label': TextConstants.tabMyTasks},
+    {'icon': Icons.hourglass_bottom, 'label': TextConstants.tabTaskTracker},
+    {'icon': Icons.loop, 'label': TextConstants.tabOngoing},
+    {'icon': Icons.wallet, 'label': TextConstants.tabWorkSummary},
   ];
 
   @override
@@ -63,9 +64,9 @@ class _TabBarSectionState extends State<TabBarSection>
                 },
                 child: Container(
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                  const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
                     color: selected ? appColors.buttonColor : Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -99,13 +100,14 @@ class _TabBarSectionState extends State<TabBarSection>
         const SizedBox(height: 10),
         Row(
           children: const [
-            Text("Sort by:", style: TextStyle(fontWeight: FontWeight.w500)),
+            Text(TextConstants.sortBy,
+                style: TextStyle(fontWeight: FontWeight.w500)),
             SizedBox(width: 8),
             Radio(value: true, groupValue: true, onChanged: null),
-            Text("Deadline"),
+            Text(TextConstants.deadline),
             SizedBox(width: 20),
             Radio(value: true, groupValue: true, onChanged: null),
-            Text("Project"),
+            Text(TextConstants.project),
             Spacer(),
             Icon(Icons.tune),
           ],
@@ -117,34 +119,34 @@ class _TabBarSectionState extends State<TabBarSection>
             Column(
               children: taskController.myTasks
                   .map((task) => SimpleTaskCard(
-                        title: task.title,
-                        description: task.description,
-                      ))
+                title: task.title,
+                description: task.description,
+              ))
                   .toList(),
             ),
             Column(
               children: taskController.trackers
                   .map((task) => TaskCard(
-                        title: task.title,
-                        dueDate: task.dueDate,
-                        progress: task.progress,
-                        status: task.status,
-                        priority: task.priority,
-                        updates: task.updates,
-                      ))
+                title: task.title,
+                dueDate: task.dueDate,
+                progress: task.progress,
+                status: task.status,
+                priority: task.priority,
+                updates: task.updates,
+              ))
                   .toList(),
             ),
             Column(
               children: taskController.ongoing
                   .map((task) => OngoingPendingTaskCard(
-                        title: task.title,
-                        progress: task.progress,
-                        status: task.status,
-                        startDate: task.startDate,
-                        dueDate: task.dueDate,
-                        priority: task.priority,
-                        buttonText: task.buttonText,
-                      ))
+                title: task.title,
+                progress: task.progress,
+                status: task.status,
+                startDate: task.startDate,
+                dueDate: task.dueDate,
+                priority: task.priority,
+                buttonText: task.buttonText,
+              ))
                   .toList(),
             ),
             const ProductivityDashboard(),

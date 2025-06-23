@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../constants/text_constants.dart';
 import '../../controller/dashboard_controllers/leave_dashboard_controller.dart';
 import '../../widgets/leave_overview_chart.dart';
 import '../../widgets/leave_status_card.dart';
@@ -38,35 +40,34 @@ class LeaveDashboardScreen extends StatelessWidget {
                                   width: MediaQuery.of(context).size.width,
                                   decoration: BoxDecoration(
                                     color: Colors.lightBlueAccent.shade100,
-                                    borderRadius: BorderRadius.circular(10)
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
-                                 
                                 ),
                                 Container(
                                   height: 5,
                                   width: 90,
                                   decoration: BoxDecoration(
+                                    color: Colors.blue,
                                     borderRadius: BorderRadius.circular(10),
-                                      color: Colors.blue
                                   ),
                                 ),
                               ],
                             ),
-                            title: "Total Leave Taken",
+                            title: TextConstants.totalLeaveTaken,
                             value: "${data.totalTaken} days",
                             subtitle:
-                                "${data.remaining} days remaining this year",
+                            "${data.remaining} ${TextConstants.remainingDays}",
                             icon: Icons.article_outlined,
                           ),
                         ),
                         const SizedBox(width: 5),
                         Expanded(
                           child: LeaveStatCard(
-                            widget: SizedBox.shrink(),
-                            title: "Approval Rate",
+                            widget: const SizedBox.shrink(),
+                            title: TextConstants.approvalRate,
                             value: "${data.approvalRate}%",
                             subtitle:
-                                "${data.remaining} days remaining this year",
+                            "${data.remaining} ${TextConstants.remainingDays}",
                             icon: Icons.radar,
                           ),
                         ),
@@ -77,22 +78,22 @@ class LeaveDashboardScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: LeaveStatCard(
-                            widget: SizedBox.shrink(),
-                            title: "Pending Request",
+                            widget: const SizedBox.shrink(),
+                            title: TextConstants.pendingRequest,
                             value: "${data.pendingRequest}",
                             subtitle:
-                                "${data.remaining} days remaining this year",
-                            icon: Icons.hourglass_empty_sharp
+                            "${data.remaining} ${TextConstants.remainingDays}",
+                            icon: Icons.hourglass_empty_sharp,
                           ),
                         ),
                         const SizedBox(width: 5),
                         Expanded(
                           child: LeaveStatCard(
-                            widget: SizedBox.shrink(),
-                            title: "Team Member \non Leave",
+                            widget: const SizedBox.shrink(),
+                            title: TextConstants.teamOnLeave,
                             value: "${data.teamOnLeave}",
                             subtitle:
-                                "${data.remaining} days remaining this year",
+                            "${data.remaining} ${TextConstants.remainingDays}",
                             icon: Icons.group_outlined,
                           ),
                         ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../constants/color_constants.dart';
 import '../constants/text_constants.dart';
@@ -10,7 +9,7 @@ class LeavesScreenAppBar extends StatelessWidget {
     showGeneralDialog(
       context: context,
       barrierDismissible: true,
-      barrierLabel: "Search",
+      barrierLabel: TextConstants.search,
       transitionDuration: const Duration(milliseconds: 300),
       pageBuilder: (_, __, ___) => Align(
         alignment: Alignment.topCenter,
@@ -28,41 +27,59 @@ class LeavesScreenAppBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios)),
-                    Text(
-                      "05 May 2025",
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios),
+                    ),
+                    const Text(
+                      TextConstants.mayDate,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width*1/2-50,),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 1 / 2 - 50,
+                    ),
                     Card(
                       color: Colors.lightGreen.shade400,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 2),
-                          child: Icon(Icons.send, color: Colors.white),
-                        )),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      child: const Padding(
+                        padding:
+                        EdgeInsets.symmetric(horizontal: 15, vertical: 2),
+                        child: Icon(Icons.send, color: Colors.white),
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 10),
-                const Divider(),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Search History",
-                      style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                const Row(
+                  children: [
+                    SizedBox(width: 30),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          TextConstants.searchHistory,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 14),
+                        ),
+                        SizedBox(height: 10),
+                        Text(TextConstants.sickLeave),
+                        SizedBox(height: 8),
+                        Text(TextConstants.sampleSearchDate),
+                        SizedBox(height: 8),
+                        Text(TextConstants.casualLeave),
+                      ],
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 10),
-                Text("Sick Leave..."),
-                const SizedBox(height: 8),
-                Text("23 May 2025..."),
-                const SizedBox(height: 8),
-                Text("Casual Leaves.."),
               ],
             ),
           ),
@@ -101,7 +118,7 @@ class LeavesScreenAppBar extends StatelessWidget {
                         Icon(Icons.search, size: 18, color: Colors.grey),
                         SizedBox(width: 8),
                         Text(
-                          'Search',
+                          TextConstants.search,
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],
@@ -120,7 +137,8 @@ class LeavesScreenAppBar extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  const Icon(Icons.notifications, size: 25, color: Colors.white),
+                  const Icon(Icons.notifications,
+                      size: 25, color: Colors.white),
                   Positioned(
                     right: 0,
                     child: Container(
@@ -146,5 +164,3 @@ class LeavesScreenAppBar extends StatelessWidget {
     );
   }
 }
-
-

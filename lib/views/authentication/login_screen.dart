@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       setState(() => _isLoading = true);
       _controller.loginUser(
+        context: context,
         email: emailController.text,
         password: passwordController.text,
         scaffoldKey: _scaffoldKey,

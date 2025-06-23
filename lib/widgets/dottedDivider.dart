@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget dottedDivider() {
+Widget dottedDivider(length) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: List.generate(
-      60,
+      length,
           (_) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 1.5),
         child: Container(

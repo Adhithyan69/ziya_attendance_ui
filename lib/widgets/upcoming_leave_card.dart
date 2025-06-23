@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import '../constants/color_constants.dart';
+import '../constants/text_constants.dart';
 
 class UpcomingLeaveCard extends StatelessWidget {
   final String type;
@@ -32,10 +32,12 @@ class UpcomingLeaveCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Upcoming Leave",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            const Text(
+              TextConstants.upcomingLeave,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 4),
-            const Text("Your scheduled time off"),
+            const Text(TextConstants.scheduledTimeOff),
             const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,26 +58,29 @@ class UpcomingLeaveCard extends StatelessWidget {
               color: Colors.yellow[100],
               child: Row(
                 children: [
-                   Icon(Icons.error_outline, color: appColors.warningClr),
+                  Icon(Icons.error_outline, color: appColors.warningClr),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Pending Approval",
+                          TextConstants.pendingApprovalTitle,
                           style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: appColors.warningClr),
+                            fontWeight: FontWeight.w500,
+                            color: appColors.warningClr,
+                          ),
                         ),
-                        Text(
-                          "Your leave request is awaiting manager approval.",
+                        const Text(
+                          TextConstants.pendingApprovalSubtitle,
                           style: TextStyle(
-                              fontSize: 14, color: Colors.brown),
+                            fontSize: 14,
+                            color: Colors.brown,
+                          ),
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             )

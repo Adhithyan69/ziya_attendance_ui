@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
 class LeaveOverviewChart extends StatelessWidget {
   final List<int> quarterly;
@@ -26,11 +27,16 @@ class LeaveOverviewChart extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Leave Overview", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            const Text(
+              TextConstants.leaveOverview,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 4),
-            const Text("Your leave distribution for the current year", style: TextStyle(fontSize: 12)),
+            const Text(
+              TextConstants.leaveDistribution,
+              style: TextStyle(fontSize: 12),
+            ),
             const SizedBox(height: 16),
-
             SizedBox(
               height: 100,
               child: Row(
@@ -50,7 +56,7 @@ class LeaveOverviewChart extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 6),
-                      Text("Q${index + 1}"),
+                      Text("${TextConstants.qLabelPrefix}${index + 1}"),
                     ],
                   );
                 }),
@@ -59,29 +65,30 @@ class LeaveOverviewChart extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.circle,color: appColors.leavesOverviewContClr,size: 12,),
-                const SizedBox(width: 8,),
-                Text('Leave days taken',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 14),),
+                Icon(Icons.circle, color: appColors.leavesOverviewContClr, size: 12),
+                const SizedBox(width: 8),
+                const Text(
+                  TextConstants.leaveDaysTaken,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                ),
               ],
             ),
-            Divider(),
+            const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Total days",style: TextStyle(fontSize: 11),),
-                    Text("$totalUsed",style: TextStyle(fontSize: 11),),
+                    const Text(TextConstants.totalDays, style: TextStyle(fontSize: 11)),
+                    Text("$totalUsed", style: const TextStyle(fontSize: 11)),
                   ],
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Remaining",style: TextStyle(fontSize: 11),),
-                    Text("$remaining",style: TextStyle(fontSize: 11),),
+                    const Text(TextConstants.remaining, style: TextStyle(fontSize: 11)),
+                    Text("$remaining", style: const TextStyle(fontSize: 11)),
                   ],
                 ),
               ],

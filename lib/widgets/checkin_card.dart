@@ -31,12 +31,12 @@ class CheckInCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const Text(
-                'Select Punch-In Type',
+                TextConstants.selectPunchInType,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
               const Text(
-                'Are you working from home or on site today?',
+                TextConstants.punchInDialog,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.black54),
               ),
@@ -65,7 +65,7 @@ class CheckInCard extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        "On Site",
+                        TextConstants.onSite,
                         style: TextStyle(color: appColors.unSelectedTextColor),
                       ),
                     ),
@@ -94,7 +94,7 @@ class CheckInCard extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        "Work From Home",
+                        TextConstants.wfh,
                         style: TextStyle(color: appColors.selectedTextColor),
                       ),
                     ),
@@ -131,7 +131,7 @@ class CheckInCard extends StatelessWidget {
                   size: 48, color: Colors.orange),
               const SizedBox(height: 16),
               const Text(
-                'Do you really want\nto checkout!',
+                TextConstants.doYouReallyWantToCheckout,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.orange,
@@ -154,7 +154,7 @@ class CheckInCard extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        "Update Task",
+                        TextConstants.updateTask,
                         style: TextStyle(color: appColors.unSelectedTextColor),
                       ),
                     ),
@@ -190,7 +190,7 @@ class CheckInCard extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        "Punch Out",
+                        TextConstants.punchOut,
                         style: TextStyle(color: appColors.selectedTextColor),
                       ),
                     ),
@@ -218,7 +218,7 @@ class CheckInCard extends StatelessWidget {
           children: [
             Text(
               provider.isCheckedIn
-                  ? "Checked in at ${provider.checkInTime}"
+                  ? "${TextConstants.checkedInAt} ${provider.checkInTime}"
                   : TextConstants.haventCheckedText,
               style: TextStyle(
                   color: provider.isCheckedIn ? Colors.green : Colors.red),
@@ -249,7 +249,7 @@ class CheckInCard extends StatelessWidget {
                           color: Colors.white,
                         ),
                         Text(
-                          "Punch In",
+                          TextConstants.punchIn,
                           style: TextStyle(color: Colors.white),
                         ),
                       ],
@@ -277,7 +277,7 @@ class CheckInCard extends StatelessWidget {
                           size: 20,
                           color: Colors.white,
                         ),
-                        Text("Punch Out",
+                        Text(TextConstants.punchOut,
                             style: TextStyle(
                               color: Colors.white,
                             )),

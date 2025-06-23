@@ -27,12 +27,12 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 10),
-                  const Text('"Good Morning ,\n ${TextConstants.userName}"',
+                  const Text('${TextConstants.wishes} ${TextConstants.userName}"',
                       style: TextStyle(color: Colors.grey, fontSize: 18)),
                   const SizedBox(height: 20),
                   const CheckInCard(),
                   const SizedBox(height: 10),
-                  const Text('Overview',
+                  const Text('${TextConstants.overView}',
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   TabBarSection(),
                   const SizedBox(height: 10),
-                  const Text('Dashboard',
+                  const Text('${TextConstants.dashboard}',
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 import '../../controller/dashboard_controllers/leaves_Request_controller.dart';
 import '../../models/dashboard_models/leave_application_model.dart';
 
@@ -14,8 +15,8 @@ class LeavesRequestScreen extends StatefulWidget {
 
 class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
   final TextEditingController _reasonController = TextEditingController();
-  final String _employeeName = "Employee Name - auto-filled";
-  final String _employeeId = "Employee ID - auto-filled";
+  final String _employeeName = TextConstants.employeeNameAutoFilled;
+  final String _employeeId = TextConstants.employeeIdAutoFilled;
   DateTime? _fromDate;
   DateTime? _toDate;
   String _leaveType = '';
@@ -32,7 +33,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Text(
-                "Apply for Leave",
+                TextConstants.applyForLeave,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: appColors.primaryColor,
@@ -40,32 +41,31 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                 ),
               ),
             ),
-            _buildLabel("Employee Name"),
+            _buildLabel(TextConstants.employeeName),
             _buildReadOnlyField(_employeeName, Icons.perm_identity),
-            _buildLabel("Employee ID"),
+            _buildLabel(TextConstants.employeeId),
             _buildReadOnlyField(_employeeId, Icons.badge_outlined),
-
             Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    _buildLabel("From"),
+                    _buildLabel(TextConstants.from),
                     SizedBox(width: MediaQuery.of(context).size.width * 1 / 2),
-                    _buildLabel("To"),
+                    _buildLabel(TextConstants.to),
                   ],
                 ),
                 Row(
                   children: [
                     Expanded(
-                      child: _buildDatePickerField("From Date", _fromDate,
+                      child: _buildDatePickerField(TextConstants.fromDate, _fromDate,
                               (date) => setState(() => _fromDate = date)),
                     ),
                     const SizedBox(width: 4),
                     const Icon(Icons.arrow_right_alt_outlined),
                     const SizedBox(width: 4),
                     Expanded(
-                      child: _buildDatePickerField("To Date", _toDate,
+                      child: _buildDatePickerField(TextConstants.toDate, _toDate,
                               (date) => setState(() => _toDate = date)),
                     ),
                   ],
@@ -93,7 +93,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                           ),
                           const SizedBox(width: 6),
                           const Text(
-                            'Leave Type',
+                            TextConstants.leaveType,
                             style: TextStyle(
                                 color: appColors.leaveScreenTextColor),
                           ),
@@ -105,9 +105,9 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                 Expanded(child: _buildCustomLeaveTypePicker()),
               ],
             ),
-            _buildLabel("Reason"),
+            _buildLabel(TextConstants.reason),
             _buildTextArea(_reasonController),
-            _buildLabel("Attachment"),
+            _buildLabel(TextConstants.attachment),
             _buildAttachmentField(),
             const SizedBox(height: 20),
             SizedBox(
@@ -117,7 +117,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: appColors.buttonColor),
                 child: const Text(
-                  "Submit",
+                  TextConstants.submit,
                   style: TextStyle(color: appColors.selectedTextColor),
                 ),
               ),
@@ -165,7 +165,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
           final picked = await showDatePicker(
             context: context,
             initialDate: DateTime.now(),
-            firstDate: DateTime(2000),
+            firstDate: DateTime.now(),
             lastDate: DateTime(2100),
           );
           if (picked != null) onDatePicked(picked);
@@ -201,7 +201,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                _leaveType.isEmpty ? "Choose Type" : _leaveType,
+                _leaveType.isEmpty ? TextConstants.chooseType : _leaveType,
                 style: const TextStyle(
                   color: appColors.leaveScreenTextColor,
                   fontWeight: FontWeight.w400,
@@ -233,12 +233,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
           backgroundColor: Colors.white,
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: [
-              "Casual Leave",
-              "Sick Leave",
-              "Work From Home",
-              "Earned Leave",
-            ].map(
+            children: TextConstants.leaveTypes.map(
                   (type) => ListTile(
                 title: Text(type),
                 onTap: () {
@@ -246,8 +241,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
                   Navigator.pop(context);
                 },
               ),
-            )
-                .toList(),
+            ).toList(),
           ),
         );
       },
@@ -262,7 +256,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
       controller: controller,
       maxLines: 4,
       decoration: const InputDecoration(
-        hintText: "Text area",
+        hintText: TextConstants.textArea,
         hintStyle: TextStyle(
           color: appColors.leaveScreenTextColor,
         ),
@@ -280,7 +274,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
       decoration: InputDecoration(
         prefixIcon:
         Icon(Icons.attach_file, color: appColors.leaveScreenTextColor),
-        hintText: "Attachment(Optional)",
+        hintText: TextConstants.attachmentOptional,
         hintStyle: TextStyle(color: appColors.leaveScreenTextColor),
         border: InputBorder.none,
       ),
@@ -293,7 +287,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
         _leaveType.isEmpty ||
         _reasonController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please fill all required fields")),
+        const SnackBar(content: Text(TextConstants.fillAllFields)),
       );
       return;
     }
@@ -311,6 +305,6 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
         .submitLeave(application);
 
     ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text("Leave Submitted")));
+        .showSnackBar(const SnackBar(content: Text(TextConstants.leaveSubmitted)));
   }
 }

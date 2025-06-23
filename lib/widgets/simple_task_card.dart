@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
 import 'dottedDivider.dart';
 
@@ -63,14 +64,14 @@ class SimpleTaskCard extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    "Start",
+                    TextConstants.start,
                     style: TextStyle(color: appColors.selectedTextColor),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 10,),
-            dottedDivider(),
+            dottedDivider(60),
           ],
         ),
       ),

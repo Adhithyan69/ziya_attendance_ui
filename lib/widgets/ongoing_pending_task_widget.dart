@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
-
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 import 'dottedDivider.dart';
 
 class OngoingPendingTaskCard extends StatelessWidget {
@@ -46,7 +46,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric( vertical: 15),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -64,7 +64,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${(progress * 100).round()}% Done',
+                  '${(progress * 100).round()}${TextConstants.donePercentage}',
                   style: const TextStyle(fontWeight: FontWeight.w500),
                 ),
               ],
@@ -73,7 +73,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
 
             Row(
               children: [
-                const Text("Status: "),
+                const Text(TextConstants.ongoingStatus),
                 Text(
                   status,
                   style: TextStyle(
@@ -92,7 +92,9 @@ class OngoingPendingTaskCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      buttonText == "Make as Done: " ? "Start date: " : "Assigned date: ",
+                      buttonText == "Make as Done: "
+                          ? TextConstants.startDate
+                          : TextConstants.assignedDate,
                       style: const TextStyle(fontSize: 13),
                     ),
                     Text(startDate, style: const TextStyle(fontSize: 10)),
@@ -102,7 +104,9 @@ class OngoingPendingTaskCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      buttonText == "Make as Done: " ? "Expected completion: " : "Due date: ",
+                      buttonText == "Make as Done: "
+                          ? TextConstants.expectedCompletion
+                          : TextConstants.ongoingDueDate,
                       style: const TextStyle(fontSize: 13),
                     ),
                     Text(dueDate, style: const TextStyle(fontSize: 10)),
@@ -114,7 +118,7 @@ class OngoingPendingTaskCard extends StatelessWidget {
 
             Row(
               children: [
-                const Text("Priority "),
+                const Text(TextConstants.ongoingPriority),
                 Text(
                   priority,
                   style: TextStyle(
@@ -123,20 +127,24 @@ class OngoingPendingTaskCard extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:appColors.buttonColor,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    backgroundColor: appColors.buttonColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   ),
-                  child: Text(buttonText,style: TextStyle(color: appColors.selectedTextColor),),
+                  child: Text(
+                    buttonText,
+                    style: TextStyle(color: appColors.selectedTextColor),
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 10,),
-            dottedDivider(),
+            const SizedBox(height: 10),
+            dottedDivider(60),
           ],
         ),
       ),

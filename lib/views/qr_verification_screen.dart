@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 import 'package:ziya_attendance_ui/views/punch_in_out_success_screen.dart';
 
 class QrVerificationScreen extends StatefulWidget {
@@ -27,7 +28,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
               children: [
                 const SizedBox(height: 60,),
                 const Text(
-                  'Qr Verification',
+                  TextConstants.qrVerification,
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -36,7 +37,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Please Scan your QR Code',
+                  TextConstants.pleaseScanYourQRCode,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black54,
@@ -54,7 +55,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Lottie.asset(
-                      'lib/assets/qr_scan_animation.json',
+                      TextConstants.qRAnimation,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -77,7 +78,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>PunchInOutSuccessScreen(time: widget.time, checkedIn: widget.checkedIn,)));
                       },
                       child: const Text(
-                        'Scan QR',
+                        TextConstants.scanQR,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,

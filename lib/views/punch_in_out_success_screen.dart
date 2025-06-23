@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
 class PunchInOutSuccessScreen extends StatefulWidget {
   final String time;
@@ -47,7 +48,7 @@ Widget build(BuildContext context) {
   final bool isCheckedIn = widget.checkedIn;
 
   final Color statusColor = isCheckedIn ? appColors.successGreen : appColors.successOrange;
-  final String statusText = isCheckedIn ? "Punch in successfully " : "Punch out successfully ";
+  final String statusText = isCheckedIn ? TextConstants.punchInSuccessFull : TextConstants.punchOutSuccessFull;
 
   return Scaffold(
     body: Container(

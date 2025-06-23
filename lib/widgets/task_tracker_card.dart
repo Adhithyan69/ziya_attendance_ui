@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
-
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 import 'dottedDivider.dart';
 
 class TaskCard extends StatelessWidget {
@@ -37,82 +36,79 @@ class TaskCard extends StatelessWidget {
             children: [
               Text(title,
                   style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold, color: appColors.listHeadingsTextColor)),
-              Text("Due Date: $dueDate", style: const TextStyle(fontSize: 10)),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: appColors.listHeadingsTextColor)),
+              Text("${TextConstants.ongoingDueDate} $dueDate",
+                  style: const TextStyle(fontSize: 10)),
             ],
           ),
           const SizedBox(height: 10),
-          Row(children: [
-            const Text('Status:  ', style: TextStyle(fontSize: 12)),
-            _statusDot("Not Started"),
-            _statusDot("In Progress"),
-            _statusDot("Completed"),
-            _statusDot("Overdue"),
-          ]),
-
+          Row(
+            children: [
+              const Text(TextConstants.ongoingStatus, style: TextStyle(fontSize: 12)),
+              SizedBox(width: 2,),
+              _statusDot(TextConstants.notStarted),
+              _statusDot(TextConstants.inProgress),
+              _statusDot(TextConstants.completed),
+              _statusDot(TextConstants.overdue),
+            ],
+          ),
           const SizedBox(height: 10),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Progress:', style: TextStyle(fontSize: 12)),
-
+              const Text(TextConstants.progress, style: TextStyle(fontSize: 12)),
               CircularPercentIndicator(
                 radius: 22.0,
                 lineWidth: 4.0,
                 percent: progress,
-                center: Text("${(progress * 100).toInt()}%", style: const TextStyle(fontSize: 10)),
+                center: Text("${(progress * 100).toInt()}%",
+                    style: const TextStyle(fontSize: 10)),
                 progressColor: Colors.green,
               ),
-
               Row(
                 children: const [
                   Icon(Icons.timer, size: 18, color: Colors.orange),
                   SizedBox(width: 4),
-                  Text("2 days\nremaining",
+                  Text(TextConstants.daysRemaining,
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.orange, fontSize: 10)),
                 ],
               ),
-
               Row(
                 children: const [
                   Icon(Icons.edit_note, size: 18),
                   SizedBox(width: 4),
-                  Text("Assigned By\n(optional)",
+                  Text(TextConstants.assignedBy,
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 10)),
                 ],
               )
             ],
           ),
-
           const SizedBox(height: 10),
-
           Row(
             children: [
-              const Text("Priority:", style: TextStyle(fontSize: 12)),
+              const Text(TextConstants.ongoingPriority,
+                  style: TextStyle(fontSize: 12)),
               const SizedBox(width: 10),
-              _priorityText("Low"),
-              _priorityText("Medium"),
-              _priorityText("High"),
+              _priorityText(TextConstants.lowPriority),
+              _priorityText(TextConstants.mediumPriority),
+              _priorityText(TextConstants.highPriority),
             ],
           ),
-
           const SizedBox(height: 10),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _actionItem("Start"),
-              _actionItem("Update"),
-              _actionItem("Complete"),
+              _actionItem(TextConstants.actionStart),
+              _actionItem(TextConstants.actionUpdate),
+              _actionItem(TextConstants.actionComplete),
             ],
           ),
-
           const SizedBox(height: 15),
-
-          dottedDivider(),
+          dottedDivider(60),
         ],
       ),
     );
@@ -129,11 +125,13 @@ class TaskCard extends StatelessWidget {
             backgroundColor: selected ? Colors.green : Colors.grey.shade400,
           ),
           const SizedBox(width: 4),
-          Text(label,
-              style: TextStyle(
-                fontSize: 10,
-                color: selected ? Colors.black : Colors.grey,
-              )),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 10,
+              color: selected ? Colors.black : Colors.grey,
+            ),
+          ),
         ],
       ),
     );
@@ -160,8 +158,11 @@ class TaskCard extends StatelessWidget {
         CircleAvatar(
           radius: 10,
           backgroundColor: Colors.grey.shade300,
-          child: Icon(Icons.circle,
-              size: 12, color: selected ? Colors.green : Colors.black),
+          child: Icon(
+            Icons.circle,
+            size: 12,
+            color: selected ? Colors.green : Colors.black,
+          ),
         ),
         const SizedBox(width: 5),
         Text(label, style: const TextStyle(fontSize: 10)),
@@ -169,5 +170,3 @@ class TaskCard extends StatelessWidget {
     );
   }
 }
-
-

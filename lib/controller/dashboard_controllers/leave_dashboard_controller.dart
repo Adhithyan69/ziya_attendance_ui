@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
-
 import '../../models/dashboard_models/leave_dashboard_model.dart';
-import '../../services/leave_service.dart';
-
 
 class LeaveDashboardController extends ChangeNotifier {
-  final LeaveService _leaveService = LeaveService();
-
   LeaveData? _leaveData;
+
   LeaveData? get leaveData => _leaveData;
 
   bool _loading = true;
+
   bool get isLoading => _loading;
 
-  Future<void> loadLeaveData() async {
+  void loadLeaveData() {
     _loading = true;
     notifyListeners();
 
-    _leaveData = await _leaveService.fetchLeaveData();
+    _leaveData = LeaveData(
+      totalTaken: 16,
+      remaining: 29,
+      approvalRate: 92,
+      pendingRequest: 1,
+      teamOnLeave: 2,
+      quarterlyLeave: [8, 6, 3, 2],
+      totalDaysUsed: 20,
+      upcomingStart: DateTime(2025, 4, 22),
+      upcomingEnd: DateTime(2025, 4, 24),
+      upcomingType: 'Annual Leave',
+      upcomingStatus: 'Pending',
+    );
 
     _loading = false;
     notifyListeners();

@@ -1,18 +1,140 @@
 
-import 'package:flutter/cupertino.dart';
-
 class TextConstants{
+  static const wishes ="Good Morning ,\n";
   static const userName ="Hemant Rangarajan";
+  static const overView ="Overview";
+  static const dashboard ="Dashboard";
   static const userField="Full-stack Developer";
   static const centerYourFace ="Center your face";
   static const checkVerifcnText="point your face right at the box,\nthen take a photo";
   static const haventCheckedText="You haven't Checked-in yet";
+  static const punchInSuccessFull="Punch in successfully ";
+  static const punchOutSuccessFull="Punch out successfully ";
   static const checkedInText="You are checked in at";
  static const String? profileImageUrl ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQiUvtYCuHnxrQ9iJVqomIDZ-QUVdSUwyKgQ&s"; // Or null
   static const presence="Presence";
   static const absence="Absence";
   static const leaves="Leaves";
+  static const late="Late";
   static const presenceLength="20";
   static const absenceLength="03";
   static const leavesLength="02";
+  static const lateLength="06";
+  static const qrVerification='Qr Verification';
+  static const pleaseScanYourQRCode='Please Scan your QR Code';
+  static const scanQR='Scan QR';
+  static const takePhoto='Take Photo';
+  static const qRAnimation="lib/assets/qr_scan_animation.json";
+  static const faceScanAnimation='lib/assets/face_scan.json';
+  static const faceVerification='Face Verification';
+  static const pleaseCaptureYourFace='Please capture your face';
+  static const punchIn="Punch In";
+  static const punchOut="Punch Out";
+  static const updateTask="Update Task";
+  static const checkedInAt="Checked in at";
+  static const wfh="Work From Home";
+  static const onSite="On Site";
+  static const doYouReallyWantToCheckout="Do you really want\nto checkout!";
+  static const punchInDialog="Are you working from home or on site today?";
+  static const selectPunchInType="Select Punch-In Type";
+  // Leave Dashboard
+  static const String totalLeaveTaken = "Total Leave Taken";
+  static const String approvalRate = "Approval Rate";
+  static const String pendingRequest = "Pending Request";
+  static const String teamOnLeave = "Team Member \non Leave";
+  static const String remainingDays = "days remaining this year";
+  static const String loading = "Loading...";
+  // Leave Request
+  static const employeeNameAutoFilled = "Employee Name - auto-filled";
+  static const employeeIdAutoFilled = "Employee ID - auto-filled";
+  static const applyForLeave = "Apply for Leave";
+  static const employeeName = "Employee Name";
+  static const employeeId = "Employee ID";
+  static const from = "From";
+  static const to = "To";
+  static const fromDate = "From Date";
+  static const toDate = "To Date";
+  static const leaveType = "Leave Type";
+  static const chooseType = "Choose Type";
+  static const reason = "Reason";
+  static const attachment = "Attachment";
+  static const attachmentOptional = "Attachment(Optional)";
+  static const submit = "Submit";
+  static const textArea = "Text area";
+  static const fillAllFields = "Please fill all required fields";
+  static const leaveSubmitted = "Leave Submitted";
+  static const List<String> leaveTypes = [
+    "Casual Leave",
+    "Sick Leave",
+    "Work From Home",
+    "Earned Leave",
+  ];
+  //ProductivityDashboard
+  static const totalWorkingDays = 'Total Working \nDays';
+  static const totalHoursWorked = 'Total Hours \nworked';
+  static const averageDailyHours = 'Average Daily \nHours';
+  static const productivityIndicator = 'Productivity \nIndicator';
+  static const projectsInvolved = 'Projects Involved';
+  static const leaveTaken = 'Leave Taken';
+  static const totalWorkingDaysValue = '20';
+  static const totalHoursWorkedValue = '160 hours';
+  static const averageDailyHoursValue = '8.0 hours';
+  static const productivityIndicatorValue = '80%';
+  static const projectsInvolvedValue = 'Revenue\nDashboard';
+  static const leaveTakenValue = '2 days';
+  //UpcomingLeaveCard
+  static const upcomingLeave = "Upcoming Leave";
+  static const scheduledTimeOff = "Your scheduled time off";
+  static const pendingApprovalTitle = "Pending Approval";
+  static const pendingApprovalSubtitle = "Your leave request is awaiting manager";
+  //TaskCard
+  static const dueDate = "Due Date:";
+  static const status = "Status:";
+  static const progress = "Progress:";
+  static const daysRemaining = "2 days\nremaining";
+  static const assignedBy = "Assigned By\n(optional)";
+  static const priority = "Priority:";
+  static const actionStart = "Start";
+  static const actionUpdate = "Update";
+  static const actionComplete = "Complete";
+  static const notStarted = "Not Started";
+  static const inProgress = "In Progress";
+  static const completed = "Completed";
+  static const overdue = "Overdue";
+  static const lowPriority = "Low";
+  static const mediumPriority = "Medium";
+  static const highPriority = "High";
+  //TabBarSection
+  static const tabMyTasks = "My Tasks";
+  static const tabTaskTracker = "Task Tracker";
+  static const tabOngoing = "Ongoing & Pending Tasks";
+  static const tabWorkSummary = "Work Summary";
+  static const sortBy = "Sort by:";
+  static const deadline = "Deadline";
+  static const project = "Project";
+  //SimpleTaskCard
+  static const start = "Start";
+  //OngoingPendingTaskCard
+  static const donePercentage = "% Done";
+  static const ongoingStatus = "Status: ";
+  static const startDate = "Start date: ";
+  static const assignedDate = "Assigned date: ";
+  static const expectedCompletion = "Expected completion: ";
+  static const ongoingDueDate = "Due date: ";
+  static const ongoingPriority = "Priority ";
+  // LeaveScreenAppBar
+  static const search = "Search";
+  static const searchHistory = "Search History";
+  static const sickLeave = "Sick Leave...";
+  static const casualLeave = "Casual Leaves..";
+  static const mayDate = "05 May 2025";
+  static const sampleSearchDate = "23 May 2025...";
+  //LeaveOverviewChart
+  static const leaveOverview = "Leave Overview";
+  static const leaveDistribution = "Your leave distribution for the current year";
+  static const leaveDaysTaken = "Leave days taken";
+  static const totalDays = "Total days";
+  static const remaining = "Remaining";
+  static const qLabelPrefix = "Q";
+
 }

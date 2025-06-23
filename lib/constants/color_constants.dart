@@ -24,6 +24,7 @@ class appColors {
   static const Color presenceClr = Colors.green;
   static const Color absenceClr = Colors.red;
   static const Color leavesClr = Colors.orangeAccent;
+  static const Color lateClr = Colors.blue;
   static const Color leavesOverviewContClr = Colors.blue;
   static const Color leavesOverviewIconClr = Colors.blue;
   static  Color warningClr = Colors.brown[600]!;

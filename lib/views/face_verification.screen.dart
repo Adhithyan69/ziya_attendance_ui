@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
+import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
 import 'check_verification_screen.dart';
 
@@ -28,7 +29,7 @@ class _FaceVerificationScreenState extends State<FaceVerificationScreen> {
               children: [
                const SizedBox(height: 60,),
                 const Text(
-                  'Face Verification',
+                  TextConstants.faceVerification,
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -37,7 +38,7 @@ class _FaceVerificationScreenState extends State<FaceVerificationScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Please capture your face',
+                  TextConstants.pleaseCaptureYourFace,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black54,
@@ -54,7 +55,7 @@ class _FaceVerificationScreenState extends State<FaceVerificationScreen> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Lottie.asset(
-                      'lib/assets/face_scan.json',
+                      TextConstants.faceScanAnimation,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -77,7 +78,7 @@ class _FaceVerificationScreenState extends State<FaceVerificationScreen> {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckVerificationScreen(time: widget.time, checkedIn: widget.checkedIn,)));
                       },
                       child: const Text(
-                        'Take Photo',
+                        TextConstants.takePhoto,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
