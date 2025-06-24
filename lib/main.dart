@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/forgot_controller.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/login_controller.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/signUp_controller.dart';
+import 'package:ziya_attendance_ui/controller/dashboard_controllers/holiday_controller.dart';
 import 'package:ziya_attendance_ui/controller/dashboard_controllers/leave_dashboard_controller.dart';
 import 'package:ziya_attendance_ui/controller/dashboard_controllers/leaves_Request_controller.dart';
 import 'package:ziya_attendance_ui/controller/task_controller.dart';
@@ -29,6 +30,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => LeaveRequestController()),
         ChangeNotifierProvider(create: (context) => LeaveDashboardController()),
         ChangeNotifierProvider(create: (context) => AttendanceController()),
+        ChangeNotifierProvider(create: (context) =>HolidayController()),
       ],
       child: const MyApp(),
     ),

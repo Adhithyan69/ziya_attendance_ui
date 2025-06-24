@@ -153,6 +153,42 @@ class TextConstants{
   static const String june18 = "June 18, 2025";
   static const String monthYearFormat = "MMMM yyyy";
   static const String attendanceCalendar = "Attendance Calendar";
+  //HolidayScreen
+  static const String totalHolidays = "Total \nHolidays";
+  static const String inAYear = "In a year";
+  static const String upcomingHolidays = "Upcoming\nHolidays";
+  static const String bakridNote = "(Bakrid-17 jun)";
+  static const String remainingThisMonth = "29 days remaining this month";
+
+  static const String public = "Public";
+  static const String optional = "Optional";
+  static const String company = "Company";
+
+  static const String dateHeader = "Date";
+  static const String dayHeader = "Day";
+  static const String holidayName = "Holiday Name";
+  static const String type = "Type";
+  static const String note = "Note";
+
+  static const String date1 = "17 June";
+  static const String date2 = "15 August";
+  static const String date3 = "23 October";
+
+  static const String day1 = "Tuesday";
+  static const String day2 = "Thursday";
+  static const String day3 = "Wednesday";
+
+  static const String holiday1 = "Bakrid";
+  static const String holiday2 = "Independence Day";
+  static const String holiday3 = "Diwali";
+
+  static const String type1 = "Public Holiday";
+  static const String type2 = "National Holiday";
+  static const String type3 = "Optional";
+
+  static const String note1 = "Company-wide holiday";
+  static const String note2 = "Paid Leave";
+  static const String note3 = "Can be applied";
 
 
 }

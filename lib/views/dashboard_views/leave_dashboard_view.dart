@@ -32,7 +32,7 @@ class LeaveDashboardScreen extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: LeaveStatCard(
+                          child: LeaveStatusCard(
                             widget: Stack(
                               children: [
                                 Container(
@@ -53,6 +53,7 @@ class LeaveDashboardScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            subValue: '',
                             title: TextConstants.totalLeaveTaken,
                             value: "${data.totalTaken} days",
                             subtitle:
@@ -62,7 +63,8 @@ class LeaveDashboardScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 5),
                         Expanded(
-                          child: LeaveStatCard(
+                          child: LeaveStatusCard(
+                            subValue: '',
                             widget: const SizedBox.shrink(),
                             title: TextConstants.approvalRate,
                             value: "${data.approvalRate}%",
@@ -77,7 +79,8 @@ class LeaveDashboardScreen extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: LeaveStatCard(
+                          child: LeaveStatusCard(
+                            subValue: '',
                             widget: const SizedBox.shrink(),
                             title: TextConstants.pendingRequest,
                             value: "${data.pendingRequest}",
@@ -88,7 +91,8 @@ class LeaveDashboardScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 5),
                         Expanded(
-                          child: LeaveStatCard(
+                          child: LeaveStatusCard(
+                            subValue: '',
                             widget: const SizedBox.shrink(),
                             title: TextConstants.teamOnLeave,
                             value: "${data.teamOnLeave}",

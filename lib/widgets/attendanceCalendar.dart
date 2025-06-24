@@ -86,7 +86,7 @@ class AttendanceCalendar extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   weekendStyle: TextStyle(
-                    color: AppColors.calendarWeekend,
+                    color: AppColors.calendarWeekday,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
