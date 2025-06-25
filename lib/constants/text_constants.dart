@@ -189,6 +189,22 @@ class TextConstants{
   static const String note1 = "Company-wide holiday";
   static const String note2 = "Paid Leave";
   static const String note3 = "Can be applied";
-
+  //LeaveStatusScreen
+  static const String leaveBalance = "Leave Balance";
+  static const String approvedLeaves = "Approved Leaves";
+  static const String rejectedLeaves = "Rejected Leaves";
+  static const String upcomingLeaves = "Upcoming\n Leaves";
+  static const String scheduled = "Scheduled(25 June)";
+  static const String leaveStatusDaysRemaining = "29 days remaining this month ";
+  static const String valueLeaveTaken = "16 days";
+  static const String valueLeaveBalance = "8 days";
+  static const String valuePendingRequest = "1 request";
+  static const String valueApproved = "5 leaves";
+  static const String valueRejected = "2 leaves";
+  static const String valueUpcoming = "11 leaves";
+  static const String subtitleLeaveTaken = "10 days remaining this month";
+  static const String approved = "Approved";
+  static const String pending = "Pending";
+  static const String rejected = "Rejected";
 
 }

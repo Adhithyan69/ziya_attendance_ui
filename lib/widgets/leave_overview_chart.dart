@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
 import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
@@ -16,7 +18,7 @@ class LeaveOverviewChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final max = quarterly.reduce((a, b) => a > b ? a : b).toDouble();
+    final max = (quarterly.isEmpty ? 1 : quarterly.reduce((a, b) => a > b ? a : b)).toDouble();
 
     return Card(
       elevation: 2,
@@ -27,50 +29,56 @@ class LeaveOverviewChart extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              TextConstants.leaveOverview,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+            const Text(TextConstants.leaveOverview,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             const SizedBox(height: 4),
-            const Text(
-              TextConstants.leaveDistribution,
-              style: TextStyle(fontSize: 12),
-            ),
+            const Text(TextConstants.leaveDistribution, style: TextStyle(fontSize: 12)),
             const SizedBox(height: 16),
             SizedBox(
-              height: 100,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: List.generate(4, (index) {
-                  final barHeight = (quarterly[index] / (max == 0 ? 1 : max)) * 30;
-
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        height: barHeight,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: AppColors.leavesOverviewContClr,
+              height: 120,
+              child: BarChart(
+                BarChartData(
+                  maxY: max,
+                  borderData: FlBorderData(show: false),
+                  gridData: FlGridData(show: false),
+                  titlesData: FlTitlesData(
+                    leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        getTitlesWidget: (value, meta) => Text(
+                          'Q${value.toInt() + 1}',
+                          style: const TextStyle(fontSize: 11),
                         ),
                       ),
-                      const SizedBox(height: 6),
-                      Text("${TextConstants.qLabelPrefix}${index + 1}"),
-                    ],
-                  );
-                }),
+                    ),
+                  ),
+                  barGroups: List.generate(quarterly.length, (i) {
+                    return BarChartGroupData(
+                      x: i,
+                      barRods: [
+                        BarChartRodData(
+                          toY: quarterly[i].toDouble(),
+                          width: 40,
+                          borderRadius: BorderRadius.zero,
+                          color: AppColors.leavesOverviewContClr,
+                        )
+                      ],
+                    );
+                  }),
+                ),
               ),
             ),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.circle, color: AppColors.leavesOverviewContClr, size: 12),
                 const SizedBox(width: 8),
-                const Text(
-                  TextConstants.leaveDaysTaken,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
+                const Text(TextConstants.leaveDaysTaken,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
               ],
             ),
             const Divider(),
@@ -81,14 +89,14 @@ class LeaveOverviewChart extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(TextConstants.totalDays, style: TextStyle(fontSize: 11)),
-                    Text("$totalUsed", style: const TextStyle(fontSize: 11)),
+                    Text('$totalUsed', style: const TextStyle(fontSize: 11)),
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(TextConstants.remaining, style: TextStyle(fontSize: 11)),
-                    Text("$remaining", style: const TextStyle(fontSize: 11)),
+                    Text('$remaining', style: const TextStyle(fontSize: 11)),
                   ],
                 ),
               ],

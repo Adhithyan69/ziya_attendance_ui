@@ -7,6 +7,7 @@ import 'package:ziya_attendance_ui/controller/auth_controllers/login_controller.
 import 'package:ziya_attendance_ui/controller/auth_controllers/signUp_controller.dart';
 import 'package:ziya_attendance_ui/controller/dashboard_controllers/holiday_controller.dart';
 import 'package:ziya_attendance_ui/controller/dashboard_controllers/leave_dashboard_controller.dart';
+import 'package:ziya_attendance_ui/controller/dashboard_controllers/leave_status_controller.dart';
 import 'package:ziya_attendance_ui/controller/dashboard_controllers/leaves_Request_controller.dart';
 import 'package:ziya_attendance_ui/controller/task_controller.dart';
 import 'package:ziya_attendance_ui/views/authentication/signUp_screen.dart';
@@ -31,6 +32,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => LeaveDashboardController()),
         ChangeNotifierProvider(create: (context) => AttendanceController()),
         ChangeNotifierProvider(create: (context) =>HolidayController()),
+        ChangeNotifierProvider(create: (context) =>LeaveStatusController()),
       ],
       child: const MyApp(),
     ),

@@ -40,5 +40,10 @@ class AppColors {
   static const Color companyClr = Color(0xFF2196F3);
 
   static const Color progressTrackColor = Color(0xFFB3E5FC);
+  static const Color progressColor = Colors.blue;
   static const Color greyBorder = Color(0xFFE0E0E0);
+  static const Color approved = Colors.green;
+  static const Color rejected = Colors.red;
+  static  Color pending = Colors.yellow.shade600;
+
 }

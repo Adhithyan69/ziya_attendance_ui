@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ziya_attendance_ui/constants/color_constants.dart';
 import '../../constants/text_constants.dart';
 import '../../controller/dashboard_controllers/leave_dashboard_controller.dart';
 import '../../widgets/leave_overview_chart.dart';
-import '../../widgets/leave_status_card.dart';
+import '../../widgets/status_card.dart';
 import '../../widgets/upcoming_leave_card.dart';
 
 class LeaveDashboardScreen extends StatelessWidget {
@@ -19,7 +20,6 @@ class LeaveDashboardScreen extends StatelessWidget {
           if (controller.isLoading) {
             return const Center(child: CircularProgressIndicator());
           }
-
           final data = controller.leaveData!;
           return Scaffold(
             backgroundColor: Colors.white,
@@ -32,14 +32,15 @@ class LeaveDashboardScreen extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: LeaveStatusCard(
+                          child: StatusCard(
+                            subValue2: '',
                             widget: Stack(
                               children: [
                                 Container(
                                   height: 5,
                                   width: MediaQuery.of(context).size.width,
                                   decoration: BoxDecoration(
-                                    color: Colors.lightBlueAccent.shade100,
+                                    color: AppColors.progressTrackColor,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
@@ -47,7 +48,7 @@ class LeaveDashboardScreen extends StatelessWidget {
                                   height: 5,
                                   width: 90,
                                   decoration: BoxDecoration(
-                                    color: Colors.blue,
+                                    color: AppColors.progressColor,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
@@ -63,7 +64,8 @@ class LeaveDashboardScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 5),
                         Expanded(
-                          child: LeaveStatusCard(
+                          child: StatusCard(
+                            subValue2: '',
                             subValue: '',
                             widget: const SizedBox.shrink(),
                             title: TextConstants.approvalRate,
@@ -79,7 +81,8 @@ class LeaveDashboardScreen extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: LeaveStatusCard(
+                          child: StatusCard(
+                            subValue2: '',
                             subValue: '',
                             widget: const SizedBox.shrink(),
                             title: TextConstants.pendingRequest,
@@ -91,7 +94,8 @@ class LeaveDashboardScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 5),
                         Expanded(
-                          child: LeaveStatusCard(
+                          child: StatusCard(
+                            subValue2: '',
                             subValue: '',
                             widget: const SizedBox.shrink(),
                             title: TextConstants.teamOnLeave,

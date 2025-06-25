@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
 
-class LeaveStatusCard extends StatelessWidget {
+class StatusCard extends StatelessWidget {
   final String title;
   final String value;
   final String subValue;
+  final String subValue2;
   final String subtitle;
   final IconData icon;
   final Widget widget;
 
-  const LeaveStatusCard({
+  const StatusCard({
     super.key,
     required this.title,
     required this.value,
@@ -17,6 +18,7 @@ class LeaveStatusCard extends StatelessWidget {
     required this.icon,
      required this.widget,
      required this.subValue,
+    required this.subValue2,
   });
 
   @override
@@ -42,10 +44,11 @@ class LeaveStatusCard extends StatelessWidget {
               children: [
                 Text(value, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                const SizedBox(width: 10,),
-                Text(subValue, style: const TextStyle(fontSize: 10,)),
+                 Text(subValue, style: const TextStyle(fontSize: 10,)),
 
               ],
             ),
+            Text(subValue2, style: const TextStyle(fontSize: 10,)),
             const SizedBox(height: 14),
             Text(subtitle, style: TextStyle(color: Colors.grey[600], fontSize: 10)),
             const SizedBox(height: 4),

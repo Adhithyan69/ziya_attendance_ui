@@ -7,20 +7,24 @@ class LeaveDashboardController extends ChangeNotifier {
   LeaveData? get leaveData => _leaveData;
 
   bool _loading = true;
-
   bool get isLoading => _loading;
+
+  LeaveDashboardController() {
+    loadLeaveData();
+  }
 
   void loadLeaveData() {
     _loading = true;
     notifyListeners();
 
+    // Simulate data fetching (replace with real API later if needed)
     _leaveData = LeaveData(
       totalTaken: 16,
       remaining: 29,
       approvalRate: 92,
       pendingRequest: 1,
       teamOnLeave: 2,
-      quarterlyLeave: [8, 6, 3, 2],
+      quarterlyLeave: [4, 3, 2, 1],
       totalDaysUsed: 20,
       upcomingStart: DateTime(2025, 4, 22),
       upcomingEnd: DateTime(2025, 4, 24),

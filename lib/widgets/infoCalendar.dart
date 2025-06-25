@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../constants/color_constants.dart';
 
-class HolidayCalendar extends StatelessWidget {
+class InfoCalendar extends StatelessWidget {
   final Map<DateTime, Color> dateColors;
 
-  const HolidayCalendar({
+  const InfoCalendar({
     super.key,
     required this.dateColors,
   });
@@ -47,7 +47,10 @@ class HolidayCalendar extends StatelessWidget {
             ),
             calendarBuilders: CalendarBuilders(
               defaultBuilder: (context, day, _) {
-                final color = dateColors[DateTime(day.year, day.month, day.day)];
+                final normalizedDay = DateTime(day.year, day.month, day.day);
+                final color = dateColors[normalizedDay];
+                final isWeekend = day.weekday == DateTime.saturday || day.weekday == DateTime.sunday;
+
                 return Container(
                   height: 50,
                   width: 50,
@@ -57,8 +60,8 @@ class HolidayCalendar extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     '${day.day}',
-                    style: const TextStyle(
-                      color: Colors.black,
+                    style: TextStyle(
+                      color: isWeekend ? Colors.red : Colors.black,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
