@@ -15,6 +15,7 @@ import 'package:ziya_attendance_ui/views/bottom_navigationBar.dart';
 import 'controller/checkin_card_controller.dart';
 import 'controller/dashboard_controllers/attendance_controller.dart';
 import 'controller/dashboard_controllers/dash_board_controller.dart';
+import 'controller/dashboard_controllers/payslip_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => AttendanceController()),
         ChangeNotifierProvider(create: (context) =>HolidayController()),
         ChangeNotifierProvider(create: (context) =>LeaveStatusController()),
+        ChangeNotifierProvider(create: (context) =>PayslipController()),
       ],
       child: const MyApp(),
     ),

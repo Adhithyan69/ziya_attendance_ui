@@ -1,3 +1,5 @@
+import 'package:file_picker/src/platform_file.dart';
+
 class LeaveApplication {
   final String employeeName;
   final String employeeId;
@@ -15,5 +17,6 @@ class LeaveApplication {
     required this.leaveType,
     required this.reason,
     this.attachmentPath,
+    PlatformFile? attachment,
   });
 }

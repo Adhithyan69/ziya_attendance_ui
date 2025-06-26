@@ -36,7 +36,7 @@ class DashboardController extends ChangeNotifier {
         page = const HolidayListScreen();
         break;
       case "Payslip":
-        page = const PaysLipScreen();
+        page = const PayslipScreen();
         break;
       case "Reports":
         page = const ReportsScreen();

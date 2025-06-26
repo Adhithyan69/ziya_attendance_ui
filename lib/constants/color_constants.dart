@@ -45,5 +45,7 @@ class AppColors {
   static const Color approved = Colors.green;
   static const Color rejected = Colors.red;
   static  Color pending = Colors.yellow.shade600;
+  static const netPayBackground = Color(0xFFD0F0C0);
+  static const netPayAccent = Colors.green;
 
 }

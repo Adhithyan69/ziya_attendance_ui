@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
 import 'package:ziya_attendance_ui/constants/text_constants.dart';
 import '../../controller/dashboard_controllers/leaves_Request_controller.dart';
@@ -20,6 +21,8 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
   DateTime? _fromDate;
   DateTime? _toDate;
   String _leaveType = '';
+  String? _attachedFileName;
+  PlatformFile? _pickedFile;
 
   @override
   Widget build(BuildContext context) {
@@ -265,21 +268,44 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
     ),
   );
 
-  Widget _buildAttachmentField() => Card(
-    color: Colors.white,
-    shape:
-    RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-    child: const TextField(
-      readOnly: true,
-      decoration: InputDecoration(
-        prefixIcon:
-        Icon(Icons.attach_file, color: AppColors.leaveScreenTextColor),
-        hintText: TextConstants.attachmentOptional,
-        hintStyle: TextStyle(color: AppColors.leaveScreenTextColor),
-        border: InputBorder.none,
+  Widget _buildAttachmentField() {
+    return Card(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+      child: InkWell(
+        onTap: _pickAttachment,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+          child: Row(
+            children: [
+              const Icon(Icons.attach_file, color: AppColors.leaveScreenTextColor),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  _attachedFileName ?? TextConstants.attachmentOptional,
+                  style: const TextStyle(color: AppColors.leaveScreenTextColor),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-    ),
-  );
+    );
+  }
+
+  Future<void> _pickAttachment() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.any,
+    );
+
+    if (result != null && result.files.isNotEmpty) {
+      setState(() {
+        _pickedFile = result.files.first;
+        _attachedFileName = _pickedFile!.name;
+      });
+    }
+  }
 
   void _submit() {
     if (_fromDate == null ||
@@ -299,6 +325,7 @@ class _LeavesRequestScreenState extends State<LeavesRequestScreen> {
       toDate: _toDate!,
       leaveType: _leaveType,
       reason: _reasonController.text,
+      attachment: _pickedFile,
     );
 
     Provider.of<LeaveRequestController>(context, listen: false)
