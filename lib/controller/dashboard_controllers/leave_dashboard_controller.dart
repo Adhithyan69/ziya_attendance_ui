@@ -17,7 +17,6 @@ class LeaveDashboardController extends ChangeNotifier {
     _loading = true;
     notifyListeners();
 
-    // Simulate data fetching (replace with real API later if needed)
     _leaveData = LeaveData(
       totalTaken: 16,
       remaining: 29,

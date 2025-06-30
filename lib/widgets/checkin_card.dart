@@ -224,7 +224,7 @@ class CheckInCard extends StatelessWidget {
                   color: provider.isCheckedIn ? Colors.green : Colors.red),
             ),
             if (provider.checkOutTime != null)
-              Text("${TextConstants.checkedInText}${provider.checkOutTime}"),
+              Text("${TextConstants.checkedOutText}${provider.checkOutTime}"),
             const SizedBox(height: 20),
             Row(
               children: [

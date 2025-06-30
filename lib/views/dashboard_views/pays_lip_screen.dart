@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ziya_attendance_ui/constants/text_constants.dart';
@@ -18,7 +16,7 @@ class PayslipScreen extends StatelessWidget {
     final earningsRows = controller.earningsAndDeductionsRows;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: LeavesScreenAppBar(),
@@ -49,7 +47,7 @@ class PayslipScreen extends StatelessWidget {
                       children: [
                         Icon(Icons.arrow_back_ios, size: 18),
                         SizedBox(width: 5),
-                        Text(TextConstants.payslip, style: TextStyle(color: Colors.black, fontSize: 18)),
+                        Text(TextConstants.payslip, style: TextStyle(color: AppColors.black, fontSize: 18)),
                       ],
                     ),
                   ),
@@ -61,7 +59,7 @@ class PayslipScreen extends StatelessWidget {
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(TextConstants.ziyaAcademy, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue)),
+                        Text(TextConstants.ziyaAcademy, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.primaryBlue)),
                         Text(TextConstants.keyToSuccess, style: TextStyle(color: Colors.green, fontSize: 10)),
                       ],
                     ),
@@ -75,7 +73,7 @@ class PayslipScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Divider(color: Colors.grey.shade200),
+                const Divider(color: AppColors.grey200),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -83,7 +81,7 @@ class PayslipScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(TextConstants.employeeSummary, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Colors.black)),
+                          const Text(TextConstants.employeeSummary, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.black)),
                           const SizedBox(height: 5),
                           _entry(TextConstants.employeeName, model.employeeName),
                           const SizedBox(height: 5),
@@ -104,7 +102,7 @@ class PayslipScreen extends StatelessWidget {
                       width: 130,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.grey.shade100),
+                        border: Border.all(color: AppColors.grey100),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,7 +111,7 @@ class PayslipScreen extends StatelessWidget {
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
-                                color: Colors.green.shade100,
+                                color: AppColors.greenLight,
                               ),
                               child: Row(
                                 children: [
@@ -128,7 +126,7 @@ class PayslipScreen extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text("₹${model.netPay}", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                                      const Text(TextConstants.employeeNetPay, style: TextStyle(color: Colors.grey, fontSize: 8)),
+                                      const Text(TextConstants.employeeNetPay, style: TextStyle(color: AppColors.grey, fontSize: 8)),
                                     ],
                                   ),
                                 ],
@@ -152,20 +150,20 @@ class PayslipScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Divider(color: Colors.grey.shade200),
+                const Divider(color: AppColors.grey200),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
-                        const Text(TextConstants.pfAccountNumber, style: TextStyle(color: Colors.grey, fontSize: 10)),
-                        Text(model.pfAccountNumber, style: const TextStyle(color: Colors.black, fontSize: 10)),
+                        const Text(TextConstants.pfAccountNumber, style: TextStyle(color: AppColors.grey, fontSize: 10)),
+                        Text(model.pfAccountNumber, style: const TextStyle(color: AppColors.black, fontSize: 10)),
                       ],
                     ),
                     Row(
                       children: [
-                        const Text(TextConstants.uan, style: TextStyle(color: Colors.grey, fontSize: 10)),
-                        Text(model.uan, style: const TextStyle(color: Colors.black, fontSize: 10)),
+                        const Text(TextConstants.uan, style: TextStyle(color: AppColors.grey, fontSize: 10)),
+                        Text(model.uan, style: const TextStyle(color: AppColors.black, fontSize: 10)),
                       ],
                     ),
                   ],
@@ -174,7 +172,7 @@ class PayslipScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade300),
+                    border: Border.all(color: AppColors.grey300),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
@@ -197,7 +195,7 @@ class PayslipScreen extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                         decoration: BoxDecoration(
-                          color: Colors.blue.shade50,
+                          color: AppColors.blue50,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Row(
@@ -215,7 +213,7 @@ class PayslipScreen extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.grey),
+                    border: Border.all(color: AppColors.grey),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -225,15 +223,15 @@ class PayslipScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(TextConstants.totalNetPayable, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black)),
-                            Text(TextConstants.netPayFormula, style: TextStyle(fontSize: 10, color: Colors.grey)),
+                            Text(TextConstants.totalNetPayable, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.black)),
+                            Text(TextConstants.netPayFormula, style: TextStyle(fontSize: 10, color: AppColors.grey)),
                           ],
                         ),
                       ),
                       Container(
-                        decoration: BoxDecoration(
-                          color: Colors.green.shade50,
-                          borderRadius: const BorderRadius.only(topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
+                        decoration: const BoxDecoration(
+                          color: AppColors.greenLight,
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
                         ),
                         padding: const EdgeInsets.all(12),
                         child: Text("₹ ${model.netPay}", style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
@@ -250,7 +248,7 @@ class PayslipScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 const Divider(),
-                const Center(child: Text(TextConstants.autoGeneratedNote, style: TextStyle(fontSize: 10, color: Colors.grey), textAlign: TextAlign.center)),
+                const Center(child: Text(TextConstants.autoGeneratedNote, style: TextStyle(fontSize: 10, color: AppColors.grey), textAlign: TextAlign.center)),
                 const SizedBox(height: 8),
                 SizedBox(
                   width: double.infinity,
@@ -260,18 +258,17 @@ class PayslipScreen extends StatelessWidget {
                       final month = controller.payslip.payPeriod;
                       await controller.generateAndSavePDF(month);
                     },
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-                    child: const Text(TextConstants.downloadPdf, style: TextStyle(color: Colors.white)),
+                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryBlue),
+                    child: const Text(TextConstants.downloadPdf, style: TextStyle(color: AppColors.white)),
                   ),
                 ),
-
                 const SizedBox(height: 24),
                 const Text(TextConstants.payslipHistory, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 8),
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade300),
+                    border: Border.all(color: AppColors.grey300),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
@@ -290,7 +287,7 @@ class PayslipScreen extends StatelessWidget {
     padding: const EdgeInsets.symmetric(vertical: 2),
     child: Row(
       children: [
-        Text("$title :  ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 10, color: Colors.grey.shade500)),
+        Text("$title :  ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 10, color: AppColors.grey)),
         Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10)),
       ],
     ),

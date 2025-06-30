@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:pdf/pdf.dart';
 class AppColors {
   static const Color buttonColor = Colors.blue;
   static const Color primaryColor = Colors.black;
@@ -37,6 +38,8 @@ class AppColors {
   static const Color tagBorderClr = Colors.blue;
   static const Color publicClr = Color(0xFF4CAF50);
   static const Color optionalClr = Color(0xFFFFC107);
+  static const Color halfDayClr = Color(0xFFFFC107);
+  static const Color avgHrsClr = Color(0xFF2196F3);
   static const Color companyClr = Color(0xFF2196F3);
 
   static const Color progressTrackColor = Color(0xFFB3E5FC);
@@ -47,5 +50,23 @@ class AppColors {
   static  Color pending = Colors.yellow.shade600;
   static const netPayBackground = Color(0xFFD0F0C0);
   static const netPayAccent = Colors.green;
-
+  //payslip screen
+  static const Color white = Colors.white;
+  static const Color black = Colors.black;
+  static const Color grey = Colors.grey;
+  static const Color grey100 = Color(0xFFF5F5F5);
+  static const Color grey200 = Color(0xFFEEEEEE);
+  static const Color grey300 = Color(0xFFE0E0E0);
+  static const Color primaryBlue = Color(0xFF2196F3);
+  static const Color blue50 = Color(0xFFE3F2FD);
+  static const Color greenLight = Color(0xFFC8E6C9);
+  static const payslipTitle = PdfColors.blue;
+  static const payslipSubtitle = PdfColors.green;
+  static const payslipLightGreen = PdfColors.lightGreen100;
+  static const payslipDivider = PdfColors.grey300;
+  static const payslipSectionBg = PdfColors.grey200;
+  static const payslipHighlight = PdfColors.lightBlue100;
+  static const payslipNetPayBg = PdfColors.green100;
+  static const generatedTextColor = Colors.green;
+  static const downloadTextColor = Colors.blue;
 }
