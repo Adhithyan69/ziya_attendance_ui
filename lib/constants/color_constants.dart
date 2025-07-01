@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 class AppColors {
@@ -69,4 +70,11 @@ class AppColors {
   static const payslipNetPayBg = PdfColors.green100;
   static const generatedTextColor = Colors.green;
   static const downloadTextColor = Colors.blue;
+  // profile screen
+  static const Color textGrey = Color(0xFF888888);
+  static const Color whiteColor = Color(0xFFFFFFFF);
+  static const Color gradientBlue = CupertinoColors.activeBlue;
+  static const Color gradientGreen = Colors.green;
+
+
 }

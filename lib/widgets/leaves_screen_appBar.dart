@@ -156,7 +156,7 @@ class LeavesScreenAppBar extends StatelessWidget {
             const SizedBox(width: 10),
             const CircleAvatar(
               radius: 16,
-              backgroundImage: NetworkImage("${TextConstants.profileImageUrl}"),
+              backgroundImage: AssetImage(TextConstants.profileImageUrl),
             ),
           ],
         ),

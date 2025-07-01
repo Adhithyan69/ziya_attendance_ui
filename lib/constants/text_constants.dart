@@ -1,43 +1,43 @@
+class TextConstants {
+  static const wishes = "Good Morning ,\n";
+  static const userName = "Hemant Rangarajan";
+  static const overView = "Overview";
+  static const dashboard = "Dashboard";
+  static const userField = "Full-stack Developer";
+  static const centerYourFace = "Center your face";
+  static const checkVerifcnText = "point your face right at the box,\nthen take a photo";
+  static const haventCheckedText = "You haven't Checked-in yet";
+  static const punchInSuccessFull = "Punch in successfully ";
+  static const punchOutSuccessFull = "Punch out successfully ";
+  static const checkedInText = "You are checked in at";
+  static const checkedOutText = "You are checked out at ";
+  static const profileImageUrl = "lib/assets/userProfile_image.jpg";
+  static const presence = "Presence";
+  static const absence = "Absence";
+  static const leaves = "Leave";
+  static const late = "Late";
+  static const presenceLength = "20";
+  static const absenceLength = "03";
+  static const leavesLength = "02";
+  static const lateLength = "06";
+  static const qrVerification = 'Qr Verification';
+  static const pleaseScanYourQRCode = 'Please Scan your QR Code';
+  static const scanQR = 'Scan QR';
+  static const takePhoto = 'Take Photo';
+  static const qRAnimation = "lib/assets/qr_scan_animation.json";
+  static const faceScanAnimation = 'lib/assets/face_scan.json';
+  static const faceVerification = 'Face Verification';
+  static const pleaseCaptureYourFace = 'Please capture your face';
+  static const punchIn = "Punch In";
+  static const punchOut = "Punch Out";
+  static const updateTask = "Update Task";
+  static const checkedInAt = "Checked in at";
+  static const wfh = "Work From Home";
+  static const onSite = "On Site";
+  static const doYouReallyWantToCheckout = "Do you really want\nto checkout!";
+  static const punchInDialog = "Are you working from home or on site today?";
+  static const selectPunchInType = "Select Punch-In Type";
 
-class TextConstants{
-  static const wishes ="Good Morning ,\n";
-  static const userName ="Hemant Rangarajan";
-  static const overView ="Overview";
-  static const dashboard ="Dashboard";
-  static const userField="Full-stack Developer";
-  static const centerYourFace ="Center your face";
-  static const checkVerifcnText="point your face right at the box,\nthen take a photo";
-  static const haventCheckedText="You haven't Checked-in yet";
-  static const punchInSuccessFull="Punch in successfully ";
-  static const punchOutSuccessFull="Punch out successfully ";
-  static const checkedInText="You are checked in at";
-  static const checkedOutText="You are checked out at ";
- static const String? profileImageUrl ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQiUvtYCuHnxrQ9iJVqomIDZ-QUVdSUwyKgQ&s"; // Or null
-  static const presence="Presence";
-  static const absence="Absence";
-  static const leaves="Leave";
-  static const late="Late";
-  static const presenceLength="20";
-  static const absenceLength="03";
-  static const leavesLength="02";
-  static const lateLength="06";
-  static const qrVerification='Qr Verification';
-  static const pleaseScanYourQRCode='Please Scan your QR Code';
-  static const scanQR='Scan QR';
-  static const takePhoto='Take Photo';
-  static const qRAnimation="lib/assets/qr_scan_animation.json";
-  static const faceScanAnimation='lib/assets/face_scan.json';
-  static const faceVerification='Face Verification';
-  static const pleaseCaptureYourFace='Please capture your face';
-  static const punchIn="Punch In";
-  static const punchOut="Punch Out";
-  static const updateTask="Update Task";
-  static const checkedInAt="Checked in at";
-  static const wfh="Work From Home";
-  static const onSite="On Site";
-  static const doYouReallyWantToCheckout="Do you really want\nto checkout!";
-  static const punchInDialog="Are you working from home or on site today?";
-  static const selectPunchInType="Select Punch-In Type";
   // Leave Dashboard
   static const String totalLeaveTaken = "Total Leave Taken";
   static const String approvalRate = "Approval Rate";
@@ -45,6 +45,7 @@ class TextConstants{
   static const String teamOnLeave = "Team Member \non Leave";
   static const String remainingDays = "days remaining this year";
   static const String loading = "Loading...";
+
   // Leave Request
   static const employeeNameAutoFilled = "Employee Name - auto-filled";
   static const employeeIdAutoFilled = "Employee ID - auto-filled";
@@ -70,6 +71,7 @@ class TextConstants{
     "Work From Home",
     "Earned Leave",
   ];
+
   //ProductivityDashboard
   static const totalWorkingDays = 'Total Working \nDays';
   static const totalHoursWorked = 'Total Hours \nworked';
@@ -83,11 +85,14 @@ class TextConstants{
   static const productivityIndicatorValue = '80%';
   static const projectsInvolvedValue = 'Revenue\nDashboard';
   static const leaveTakenValue = '2 days';
+
   //UpcomingLeaveCard
   static const upcomingLeave = "Upcoming Leave";
   static const scheduledTimeOff = "Your scheduled time off";
   static const pendingApprovalTitle = "Pending Approval";
-  static const pendingApprovalSubtitle = "Your leave request is awaiting manager";
+  static const pendingApprovalSubtitle =
+      "Your leave request is awaiting manager";
+
   //TaskCard
   static const dueDate = "Due Date:";
   static const status = "Status:";
@@ -105,6 +110,7 @@ class TextConstants{
   static const lowPriority = "Low";
   static const mediumPriority = "Medium";
   static const highPriority = "High";
+
   //TabBarSection
   static const tabMyTasks = "My Tasks";
   static const tabTaskTracker = "Task Tracker";
@@ -113,8 +119,10 @@ class TextConstants{
   static const sortBy = "Sort by:";
   static const deadline = "Deadline";
   static const project = "Project";
+
   //SimpleTaskCard
   static const start = "Start";
+
   //OngoingPendingTaskCard
   static const donePercentage = "% Done";
   static const ongoingStatus = "Status: ";
@@ -123,6 +131,7 @@ class TextConstants{
   static const expectedCompletion = "Expected completion: ";
   static const ongoingDueDate = "Due date: ";
   static const ongoingPriority = "Priority ";
+
   // LeaveScreenAppBar
   static const search = "Search";
   static const searchHistory = "Search History";
@@ -130,13 +139,16 @@ class TextConstants{
   static const casualLeave = "Casual Leaves..";
   static const mayDate = "05 May 2025";
   static const sampleSearchDate = "23 May 2025...";
+
   //LeaveOverviewChart
   static const leaveOverview = "Leave Overview";
-  static const leaveDistribution = "Your leave distribution for the current year";
+  static const leaveDistribution =
+      "Your leave distribution for the current year";
   static const leaveDaysTaken = "Leave days taken";
   static const totalDays = "Total days";
   static const remaining = "Remaining";
   static const qLabelPrefix = "Q";
+
   //AttendanceScreen
   static const String workMode = "Work Mode";
   static const String verification = "Verification";
@@ -154,6 +166,7 @@ class TextConstants{
   static const String june18 = "June 18, 2025";
   static const String monthYearFormat = "MMMM yyyy";
   static const String attendanceCalendar = "Attendance Calendar";
+
   //HolidayScreen
   static const String totalHolidays = "Total \nHolidays";
   static const String inAYear = "In a year";
@@ -190,13 +203,15 @@ class TextConstants{
   static const String note1 = "Company-wide holiday";
   static const String note2 = "Paid Leave";
   static const String note3 = "Can be applied";
+
   //LeaveStatusScreen
   static const String leaveBalance = "Leave Balance";
   static const String approvedLeaves = "Approved Leaves";
   static const String rejectedLeaves = "Rejected Leaves";
   static const String upcomingLeaves = "Upcoming\n Leaves";
   static const String scheduled = "Scheduled(25 June)";
-  static const String leaveStatusDaysRemaining = "29 days remaining this month ";
+  static const String leaveStatusDaysRemaining =
+      "29 days remaining this month ";
   static const String valueLeaveTaken = "16 days";
   static const String valueLeaveBalance = "8 days";
   static const String valuePendingRequest = "1 request";
@@ -207,6 +222,7 @@ class TextConstants{
   static const String approved = "Approved";
   static const String pending = "Pending";
   static const String rejected = "Rejected";
+
   // PayslipScreen
   static const payslip = 'Payslip';
   static const ziyaAcademy = 'ZiyaAcademy';
@@ -231,8 +247,10 @@ class TextConstants{
   static const totalDeductions = 'Total Deductions ₹10,000';
   static const totalNetPayable = 'Total Net Payable';
   static const netPayFormula = 'Gross Earnings - Total Deductions';
-  static const amountInWords = 'Amount in Words:     Indian Rupee Forty-Five Thousand Only';
-  static const autoGeneratedNote = '-This document has been automatically generated by Ziya Academy';
+  static const amountInWords =
+      'Amount in Words:     Indian Rupee Forty-Five Thousand Only';
+  static const autoGeneratedNote =
+      '-This document has been automatically generated by Ziya Academy';
   static const downloadPdf = 'Download the sample salary slip format for PDF';
   static const payslipHistory = 'Monthly Payslip History';
   static const payslipGenerated = "✅Generated";
@@ -243,6 +261,7 @@ class TextConstants{
   static const autoGenerated = "This is a computer-generated payslip.";
   static const storageDenied = "Storage permission denied.";
   static const errorMonthData = "Error: Payslip data not found for ";
+
   //Reports screen
   static const reportsTitle = "Reports";
   static const workingDaysValue = "22 days";
@@ -257,8 +276,18 @@ class TextConstants{
   static const String attendance = "Attendance";
   static const String avgHours = "Avg hrs";
   static const List<String> months = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
   ];
   static const String dailyClockLog = "Daily Clock-In/Out Log";
   static const String date = "Date";
@@ -267,6 +296,11 @@ class TextConstants{
   static const String absent = "Absent";
   static const String halfDay = "Half Day";
 
-
-
+  //profile
+  static const String startWork = 'Start work';
+  static const String name = 'Name';
+  static const String empIdNO = 'EMP00123';
+  static const String department = 'Department';
+  static const  userDesignation= 'Full-Stack Developer';
+  static const  departmentName= 'Software Development Team';
 }

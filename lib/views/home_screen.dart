@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ziya_attendance_ui/constants/text_constants.dart';
 import 'package:ziya_attendance_ui/widgets/home_appBar_widget.dart';
+import '../controller/checkin_card_controller.dart';
 import '../widgets/checkin_card.dart';
 import '../widgets/overview_section.dart';
 import '../widgets/dashboard_grid.dart';
@@ -11,6 +13,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final punchIn=Provider.of<AttendanceProvider>(context).isCheckedIn;
     return DefaultTabController(
       length: 4,
       child: SafeArea(
@@ -40,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   const OverviewSection(),
                   const SizedBox(height: 10),
-                  TabBarSection(),
+                  punchIn?TabBarSection():SizedBox.shrink(),
                   const SizedBox(height: 10),
                   const Text('${TextConstants.dashboard}',
                       style: TextStyle(

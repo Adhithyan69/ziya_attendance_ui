@@ -30,17 +30,12 @@ class HomeAppBarWidget extends StatelessWidget {
 
                     Container(
                       height: 50,
+                      width: 45,
                       padding: EdgeInsets.symmetric(horizontal: 12),
-                      child: TextConstants.profileImageUrl != null &&
-                          TextConstants.profileImageUrl!.isNotEmpty
-                          ? Image.network(
-                        TextConstants.profileImageUrl!,
-                        height: 30,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Container();
-                        },
-                      )
-                          : Container(),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        image: DecorationImage(image: AssetImage(TextConstants.profileImageUrl,),fit: BoxFit.cover)
+                      ),
                     ),
 
                     SizedBox(width: 10),

@@ -1,32 +1,292 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:provider/provider.dart';
+// import '../../../constants/color_constants.dart';
+// import '../../../constants/text_constants.dart';
+// import '../controller/profile_controller.dart';
+//
+// class ProfileScreen extends StatelessWidget {
+//   const ProfileScreen({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final profile = Provider.of<ProfileController>(context).profile;
+//
+//     return SafeArea(
+//       child: Scaffold(
+//         backgroundColor: Colors.white,
+//         body: SingleChildScrollView(
+//           child: Column(
+//             children: [
+//               Container(
+//                 height: 190,
+//                 color: Colors.white,
+//                 child: Stack(
+//                   children: [
+//                     Stack(
+//                       children: [
+//                         Image.asset("lib/assets/bg_banner.jpg",
+//                             width: double.infinity,
+//                             height: 160,
+//                             fit: BoxFit.fitWidth),
+//                         Container(
+//                           height: 160,
+//                           decoration: BoxDecoration(
+//                               gradient: LinearGradient(colors: [
+//                                 CupertinoColors.activeBlue.withOpacity(0.2),
+//                                 Colors.green.withOpacity(0.4)
+//                               ])),
+//                         ),
+//
+//                       ],
+//                     ),
+//                     Positioned(
+//                       top: 95,
+//                       left: 30,
+//                       child: CircleAvatar(
+//                         radius: 48,
+//                         backgroundColor: Colors.white,
+//                         child: CircleAvatar(
+//                           radius: 45,
+//                           backgroundImage:
+//                               AssetImage(TextConstants.profileImageUrl),
+//                         ),
+//                       ),
+//                     ),
+//                     Positioned(
+//                       top: 100,
+//                       left: 145,
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           Text(profile.name,
+//                               style: TextStyle(
+//                                   fontSize: 22,
+//                                   fontWeight: FontWeight.bold,
+//                                   color: AppColors.primaryBlue)),
+//                           Text(profile.designation,
+//                               style:
+//                                   TextStyle(fontSize: 14, color: Colors.white)),
+//                         ],
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               const SizedBox(height: 10),
+//               Container(
+//                 margin: const EdgeInsets.symmetric(horizontal: 20),
+//                 padding: const EdgeInsets.all(10),
+//                 decoration: BoxDecoration(
+//                   border: Border.all(color: Colors.grey.shade300),
+//                   borderRadius: BorderRadius.circular(12),
+//                 ),
+//                 child: Column(
+//                   children: [
+//                     profileRow(TextConstants.name, profile.name),
+//                     const Divider(
+//                       color: AppColors.greyBorder,
+//                     ),
+//                     profileRow(TextConstants.employeeId, profile.employeeId),
+//                     const Divider(
+//                       color: AppColors.greyBorder,
+//                     ),
+//                     profileRow(TextConstants.designation, profile.designation),
+//                     const Divider(
+//                       color: AppColors.greyBorder,
+//                     ),
+//                     profileRow(TextConstants.department, profile.department),
+//                   ],
+//                 ),
+//               ),
+//               const SizedBox(height: 20),
+//               Image.asset("lib/assets/multitask_illustration.jpg", height: 200),
+//               const SizedBox(height: 20),
+//               ElevatedButton(
+//                 onPressed: () {},
+//                 style: ElevatedButton.styleFrom(
+//                   backgroundColor: AppColors.primaryBlue,
+//                   padding:
+//                       const EdgeInsets.symmetric(horizontal: 60, vertical: 2),
+//                   shape: RoundedRectangleBorder(
+//                       borderRadius: BorderRadius.circular(12)),
+//                 ),
+//                 child: const Text(TextConstants.startWork,
+//                     style: TextStyle(fontSize: 16, color: Colors.white)),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+//
+//   Widget profileRow(String title, String value) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(vertical: 2),
+//       child: Row(
+//         children: [
+//           Expanded(
+//               flex: 2,
+//               child: Text('$title :',
+//                   style: const TextStyle(fontWeight: FontWeight.w600))),
+//           Expanded(
+//               flex: 3,
+//               child: Text(value, style: const TextStyle(color: Colors.grey))),
+//         ],
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
-import 'authentication/login_screen.dart';
+import 'package:provider/provider.dart';
+import '../../../constants/color_constants.dart';
+import '../../../constants/text_constants.dart';
+import '../controller/profile_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
-  Future<void> logout(BuildContext context) async {
-    final FirebaseAuth auth = FirebaseAuth.instance;
-
-    try {
-      await auth.signOut();
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginPage()),
-            (route) => false,
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Logout failed: ${e.toString()}')),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(onPressed: () {logout(context);}, child: Text("logout")),
+    final profile = Provider.of<ProfileController>(context).profile;
+
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: 190,
+                color: AppColors.whiteColor,
+                child: Stack(
+                  children: [
+                    Stack(
+                      children: [
+                        Image.asset(
+                          "lib/assets/bg_banner.jpg",
+                          width: double.infinity,
+                          height: 160,
+                          fit: BoxFit.fitWidth,
+                        ),
+                        Container(
+                          height: 160,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                AppColors.gradientBlue.withOpacity(0.2),
+                                AppColors.gradientGreen.withOpacity(0.4),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Positioned(
+                      top: 95,
+                      left: 30,
+                      child: CircleAvatar(
+                        radius: 48,
+                        backgroundColor: AppColors.whiteColor,
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundImage:
+                          AssetImage(TextConstants.profileImageUrl),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 100,
+                      left: 145,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            profile.name,
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.primaryBlue,
+                            ),
+                          ),
+                          Text(
+                            profile.designation,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: AppColors.whiteColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.greyBorder),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(
+                  children: [
+                    profileRow(TextConstants.name, profile.name),
+                    const Divider(color: AppColors.greyBorder),
+                    profileRow(TextConstants.employeeId, profile.employeeId),
+                    const Divider(color: AppColors.greyBorder),
+                    profileRow(TextConstants.designation, profile.designation),
+                    const Divider(color: AppColors.greyBorder),
+                    profileRow(TextConstants.department, profile.department),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Image.asset("lib/assets/multitask_illustration.jpg", height: 200),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primaryBlue,
+                  padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 2),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: const Text(
+                  TextConstants.startWork,
+                  style: TextStyle(fontSize: 16, color: AppColors.whiteColor),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget profileRow(String title, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 2,
+            child: Text(
+              '$title :',
+              style: const TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Text(
+              value,
+              style: const TextStyle(color: AppColors.textGrey),
+            ),
+          ),
+        ],
       ),
     );
   }
