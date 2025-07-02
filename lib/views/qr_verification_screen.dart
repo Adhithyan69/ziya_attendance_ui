@@ -18,7 +18,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -40,7 +40,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
                   TextConstants.pleaseScanYourQRCode,
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black54,
+                    color: AppColors.black54,
                   ),
                 ),
                 const SizedBox(height: 92),
@@ -82,7 +82,7 @@ class _QrVerificationScreenState extends State<QrVerificationScreen> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white,
+                          color: AppColors.white,
                         ),
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:ziya_attendance_ui/constants/text_constants.dart';
 
@@ -26,7 +27,7 @@ class CheckInCard extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: GestureDetector(
                   onTap: () => Navigator.pop(context),
-                  child: const Icon(Icons.close, color: Colors.grey),
+                  child: const Icon(Icons.close, color: AppColors.grey),
                 ),
               ),
               const SizedBox(height: 8),
@@ -87,7 +88,7 @@ class CheckInCard extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: AppColors.blue,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
@@ -124,17 +125,17 @@ class CheckInCard extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: GestureDetector(
                   onTap: () => Navigator.pop(context),
-                  child: const Icon(Icons.close, color: Colors.grey),
+                  child: const Icon(Icons.close, color: AppColors.grey),
                 ),
               ),
               const Icon(Icons.warning_amber_rounded,
-                  size: 48, color: Colors.orange),
+                  size: 48, color: AppColors.orange),
               const SizedBox(height: 16),
               const Text(
                 TextConstants.doYouReallyWantToCheckout,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.orange,
+                  color: AppColors.orange,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -216,16 +217,71 @@ class CheckInCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              provider.isCheckedIn
-                  ? "${TextConstants.checkedInAt} ${provider.checkInTime}"
-                  : TextConstants.haventCheckedText,
-              style: TextStyle(
-                  color: provider.isCheckedIn ? Colors.green : Colors.red),
+            Column(
+              children: [
+                provider.isCheckedIn
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                              '"${TextConstants.checkedInAt} ${provider.checkInTime}"',
+                              style: TextStyle(
+                                  color: AppColors.green,
+                                  fontWeight: FontWeight.w500)),
+                        const  SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.alarm,
+                                color: AppColors.orange,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "${provider.checkInTime}_${DateFormat(TextConstants.checkInDateFormat).format(DateTime.now())}",
+                                style: TextStyle(color: AppColors.orange),
+                              )
+                            ],
+                          ),
+                         const SizedBox(height: 5,),
+                         provider.isOnsite==false?SizedBox.shrink(): Row(
+                            children: [
+                             provider.isOnsite==false?SizedBox.shrink(): Icon(
+                               Icons.location_on,
+                               color: AppColors.red,
+                             ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                               provider.isOnsite==false?'' :TextConstants.remoteALocationText,
+                                style: TextStyle(color: AppColors.black),
+                              ),
+                              Text(
+                                provider.isOnsite==false ? '' : TextConstants.remoteAttendance,
+                                style: TextStyle(
+                                  color:AppColors.black
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    : Text(
+                        "${TextConstants.haventCheckedText}",
+                        style: TextStyle(
+                            color: provider.isCheckedIn
+                                ? Colors.green
+                                : Colors.red),
+                      ),
+              ],
             ),
-            if (provider.checkOutTime != null)
+            if (provider.checkOutTime != null && provider.isCheckedIn == false)
               Text("${TextConstants.checkedOutText}${provider.checkOutTime}"),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Expanded(
@@ -246,11 +302,11 @@ class CheckInCard extends StatelessWidget {
                         Icon(
                           Icons.input,
                           size: 20,
-                          color: Colors.white,
+                          color: AppColors.white,
                         ),
                         Text(
                           TextConstants.punchIn,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: AppColors.white),
                         ),
                       ],
                     ),
@@ -275,11 +331,11 @@ class CheckInCard extends StatelessWidget {
                         Icon(
                           Icons.output,
                           size: 20,
-                          color: Colors.white,
+                          color: AppColors.white,
                         ),
                         Text(TextConstants.punchOut,
                             style: TextStyle(
-                              color: Colors.white,
+                              color: AppColors.white,
                             )),
                       ],
                     ),

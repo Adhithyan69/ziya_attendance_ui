@@ -54,6 +54,11 @@ class AppColors {
   //payslip screen
   static const Color white = Colors.white;
   static const Color black = Colors.black;
+  static const Color black54 = Colors.black54;
+  static const Color red = Colors.red;
+  static const Color orange = Colors.orange;
+  static const Color blue = Colors.blue;
+  static const Color green = Colors.green;
   static const Color grey = Colors.grey;
   static const Color grey100 = Color(0xFFF5F5F5);
   static const Color grey200 = Color(0xFFEEEEEE);
@@ -75,6 +80,11 @@ class AppColors {
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color gradientBlue = CupertinoColors.activeBlue;
   static const Color gradientGreen = Colors.green;
+  //notification screen
+  static const errorRed = Color(0xFFE53935);
+  static const warningOrange = Color(0xFFF57C00);
+  static const summaryBlue = Color(0xFF3F51B5);
+  static const shiftBlue = Color(0xFF2196F3);
 
 
 }

@@ -11,6 +11,8 @@ class TextConstants {
   static const punchOutSuccessFull = "Punch out successfully ";
   static const checkedInText = "You are checked in at";
   static const checkedOutText = "You are checked out at ";
+  static const remoteAttendance = "(for remote attendance)";
+  static const remoteALocationText= "Location/IP";
   static const profileImageUrl = "lib/assets/userProfile_image.jpg";
   static const presence = "Presence";
   static const absence = "Absence";
@@ -31,7 +33,7 @@ class TextConstants {
   static const punchIn = "Punch In";
   static const punchOut = "Punch Out";
   static const updateTask = "Update Task";
-  static const checkedInAt = "Checked in at";
+  static const checkedInAt = "You are Punch-in ";
   static const wfh = "Work From Home";
   static const onSite = "On Site";
   static const doYouReallyWantToCheckout = "Do you really want\nto checkout!";
@@ -303,4 +305,32 @@ class TextConstants {
   static const String department = 'Department';
   static const  userDesignation= 'Full-Stack Developer';
   static const  departmentName= 'Software Development Team';
+  //notification screen
+  static const String notificationTitle = "Notifications";
+  static const missedPunch = 'Missed Punch';
+  static const missedPunchMessage = 'Missed Clock-in Detected. Please update your attendance or contact HR.';
+  static const missed ="missed";
+
+  static const lateAttendance = 'Late Attendance';
+  static const lateAttendanceMessage = 'You’re running late! Your clock-in time is beyond the scheduled shift start.';
+
+  static const dailySummary = 'Daily Summary';
+  static const summary = 'summary';
+  static const dailySummaryMessage = 'Your attendance today: Clock-in at 9:12 AM, Clock-out at 6:05 PM. Total hours: 8.53';
+
+  static const leaveApproval = 'Leave Approval';
+  static const approval = 'approval';
+  static const leaveApprovalMessage = 'Your leave request for June 15 has been approved. Enjoy your day off!';
+
+  static const leaveRejection = 'Leave Rejection';
+  static const rejection = 'rejection';
+  static const leaveRejectionMessage = 'Leave request declined. Please check with your manager for details.';
+
+  static const shiftUpdate = 'Shift Update';
+  static const shift = 'shift';
+  static const shiftUpdateMessage = 'Shift updated: New shift time is 10:00 AM – 7:00 PM, effective from June 14.';
+  //search
+  static const String noRecentSearches = "No recent searches.";
+  static const String searchHintDateFormat = "dd MMMM yyyy";
+  static const String checkInDateFormat = "dd-MMMM-yyyy";
 }

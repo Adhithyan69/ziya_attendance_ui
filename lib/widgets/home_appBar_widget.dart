@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
 import 'package:ziya_attendance_ui/constants/text_constants.dart';
+import 'package:ziya_attendance_ui/views/notification_screen.dart';
 
 class HomeAppBarWidget extends StatelessWidget {
   const HomeAppBarWidget({super.key});
+  Route _createSlideRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 400),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+      const NotificationScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.easeInOut;
+
+
+        final tween =
+        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +69,7 @@ class HomeAppBarWidget extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppColors.white,
                           ),
                         ),
                         Text(
@@ -74,28 +96,33 @@ class HomeAppBarWidget extends StatelessWidget {
           ),
         ),
         // SizedBox(width: 20,),
-        Container(
-          padding: EdgeInsets.all(5),
-          decoration: const BoxDecoration(
-            color: AppColors.buttonColor,
-            shape: BoxShape.circle,
-          ),
-          child: Stack(
-            alignment: Alignment.topRight,
-            children: [
-              const Icon(Icons.notifications, size: 25, color: Colors.white),
-              Positioned(
-                right: 0,
-                child: Container(
-                  width: 8,
-                  height: 8,
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
-                    shape: BoxShape.circle,
+        GestureDetector(
+          onTap: (){
+            Navigator.of(context).push(_createSlideRoute());
+          },
+          child: Container(
+            padding: EdgeInsets.all(5),
+            decoration: const BoxDecoration(
+              color: AppColors.buttonColor,
+              shape: BoxShape.circle,
+            ),
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                const Icon(Icons.notifications, size: 25, color: Colors.white),
+                Positioned(
+                  right: 0,
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
