@@ -72,8 +72,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         keyboardType: TextInputType.phone,
                         validator: (v) {
                           if (v == null || v.isEmpty) return "Mobile required";
-                          if (!RegExp(r'^\d{10}$').hasMatch(v))
+                          if (!RegExp(r'^\d{10}$').hasMatch(v)) {
                             return "Enter a valid 10-digit number";
+                          }
                           return null;
                         },
                       ),
@@ -83,8 +84,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         controller: passwordController,
                         obscureText: true,
                         validator: (v) {
-                          if (v == null || v.isEmpty)
+                          if (v == null || v.isEmpty) {
                             return "Password required";
+                          }
                           if (v.length < 6) return "Min 6 characters";
                           return null;
                         },

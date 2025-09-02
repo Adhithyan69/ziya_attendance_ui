@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ziya_attendance_ui/constants/color_constants.dart';
@@ -21,7 +20,6 @@ class LeaveStatusTable extends StatelessWidget {
         return Colors.black;
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -51,19 +49,27 @@ class LeaveStatusTable extends StatelessWidget {
             children: const [
               Padding(
                 padding: EdgeInsets.all(8),
-                child: Text('Date', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
+                child: Text('Date',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.blue)),
               ),
               Padding(
                 padding: EdgeInsets.all(8),
-                child: Text('Leave Type', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
+                child: Text('Leave Type',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.blue)),
               ),
               Padding(
                 padding: EdgeInsets.all(8),
-                child: Text('Status', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
+                child: Text('Status',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.blue)),
               ),
               Padding(
                 padding: EdgeInsets.all(8),
-                child: Text('Reason', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
+                child: Text('Reason',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.blue)),
               ),
             ],
           ),
@@ -82,7 +88,10 @@ class LeaveStatusTable extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     item.status,
-                    style: TextStyle(color: _getStatusColor(item.status), fontWeight: FontWeight.bold,fontSize: 12),
+                    style: TextStyle(
+                        color: _getStatusColor(item.status),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12),
                   ),
                 ),
                 Padding(
@@ -91,7 +100,7 @@ class LeaveStatusTable extends StatelessWidget {
                 ),
               ],
             );
-          }).toList(),
+          }),
         ],
       ),
     );

@@ -228,7 +228,7 @@ class CheckInCard extends StatelessWidget {
                               style: TextStyle(
                                   color: AppColors.green,
                                   fontWeight: FontWeight.w500)),
-                        const  SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Row(
@@ -246,36 +246,36 @@ class CheckInCard extends StatelessWidget {
                               )
                             ],
                           ),
-                         const SizedBox(height: 5,),
-                         provider.isOnsite==false?SizedBox.shrink(): Row(
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Row(
                             children: [
-                             provider.isOnsite==false?SizedBox.shrink(): Icon(
-                               Icons.location_on,
-                               color: AppColors.red,
-                             ),
+                              Icon(
+                                Icons.location_on,
+                                color: AppColors.red,
+                              ),
                               SizedBox(
                                 width: 5,
                               ),
                               Text(
-                               provider.isOnsite==false?'' :TextConstants.remoteALocationText,
+                                TextConstants.remoteALocationText,
                                 style: TextStyle(color: AppColors.black),
                               ),
                               Text(
-                                provider.isOnsite==false ? '' : TextConstants.remoteAttendance,
-                                style: TextStyle(
-                                  color:AppColors.black
-                                ),
+                                TextConstants.remoteAttendance,
+                                style: TextStyle(color: AppColors.black),
                               ),
                             ],
                           ),
                         ],
                       )
                     : Text(
-                        "${TextConstants.haventCheckedText}",
+                        TextConstants.haventCheckedText,
                         style: TextStyle(
                             color: provider.isCheckedIn
-                                ? Colors.green
-                                : Colors.red),
+                                ? AppColors.green
+                                : AppColors.red),
                       ),
               ],
             ),

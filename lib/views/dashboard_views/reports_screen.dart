@@ -45,7 +45,7 @@ class ReportsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Row(
+              const Row(
                 children: [
                   Expanded(
                     child: StatusCard(
@@ -53,7 +53,7 @@ class ReportsScreen extends StatelessWidget {
                       value: TextConstants.workingDaysValue,
                       subtitle: '',
                       icon: Icons.calendar_month,
-                      widget: const SizedBox.shrink(),
+                      widget: SizedBox.shrink(),
                       subValue: '',
                       subValue2: TextConstants.thisMonth,
                     ),
@@ -64,7 +64,7 @@ class ReportsScreen extends StatelessWidget {
                       value: TextConstants.totalHoursValue,
                       subtitle: '',
                       icon: Icons.hourglass_empty_sharp,
-                      widget: const SizedBox.shrink(),
+                      widget: SizedBox.shrink(),
                       subValue: '',
                       subValue2: '',
                     ),

@@ -9,15 +9,14 @@ class HomeAppBarWidget extends StatelessWidget {
     return PageRouteBuilder(
       transitionDuration: Duration(milliseconds: 400),
       pageBuilder: (context, animation, secondaryAnimation) =>
-      const NotificationScreen(),
+          const NotificationScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.easeInOut;
 
-
         final tween =
-        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
           position: animation.drive(tween),
@@ -31,7 +30,7 @@ class HomeAppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
+        SizedBox(
           width: MediaQuery.of(context).size.width * 00.8 + 20,
           child: Stack(
             children: [
@@ -49,17 +48,18 @@ class HomeAppBarWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Row(
                   children: [
-
                     Container(
                       height: 50,
                       width: 45,
                       padding: EdgeInsets.symmetric(horizontal: 12),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        image: DecorationImage(image: AssetImage(TextConstants.profileImageUrl,),fit: BoxFit.cover)
-                      ),
+                          borderRadius: BorderRadius.circular(5),
+                          image: DecorationImage(
+                              image: AssetImage(
+                                TextConstants.profileImageUrl,
+                              ),
+                              fit: BoxFit.cover)),
                     ),
-
                     SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +97,7 @@ class HomeAppBarWidget extends StatelessWidget {
         ),
         // SizedBox(width: 20,),
         GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(_createSlideRoute());
           },
           child: Container(

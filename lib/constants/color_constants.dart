@@ -1,7 +1,7 @@
-import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
+
 class AppColors {
   static const Color buttonColor = Colors.blue;
   static const Color primaryColor = Colors.black;
@@ -28,7 +28,7 @@ class AppColors {
   static const Color lateClr = Colors.blue;
   static const Color leavesOverviewContClr = Colors.blue;
   static const Color leavesOverviewIconClr = Colors.blue;
-  static  Color warningClr = Colors.brown[600]!;
+  static Color warningClr = Colors.brown[600]!;
   static const Color tagOfficeText = Colors.blue;
   static const Color tagOfficeBg = Color(0xFFD0E8FF);
   static const Color tagSelfieText = Colors.orange;
@@ -48,7 +48,7 @@ class AppColors {
   static const Color greyBorder = Color(0xFFE0E0E0);
   static const Color approved = Colors.green;
   static const Color rejected = Colors.red;
-  static  Color pending = Colors.yellow.shade600;
+  static Color pending = Colors.yellow.shade600;
   static const netPayBackground = Color(0xFFD0F0C0);
   static const netPayAccent = Colors.green;
   //payslip screen
@@ -85,6 +85,19 @@ class AppColors {
   static const warningOrange = Color(0xFFF57C00);
   static const summaryBlue = Color(0xFF3F51B5);
   static const shiftBlue = Color(0xFF2196F3);
-
-
+//otpscreen
+  static const Color otpTitleClr = Color(0xFF000000);
+  static const Color otpSubtitleClr = Color(0xFF757575);
+  static const Color otpButtonClr = Color(0xFF1976D2);
+  static const Color otpErrorClr = Color(0xFFD32F2F);
+  static const Color otpBackgroundClr = Color(0xFFFFFFFF);
+  // Reset Password Screen
+  static const Color resetBackgroundClr = Color(0xFFF5F5F5);
+  static const Color resetTitleClr = Color(0xFF000000);
+  static const Color resetSubtitleClr = Color(0xFF757575);
+  static const Color resetCardClr = Color(0xFFFFFFFF);
+  static const Color resetCancelBtnClr = Color(0xFF9E9E9E);
+  static const Color resetButtonClr = Color(0xFF1976D2);
+  static const Color resetErrorClr = Color(0xFFD32F2F);
+  static const Color resetSuccessClr = Color(0xFF2E7D32);
 }

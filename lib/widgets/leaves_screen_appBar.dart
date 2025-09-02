@@ -224,9 +224,10 @@ class LeavesScreenAppBar extends StatelessWidget {
 
   void showSearchHistoryDialog(BuildContext context) {
     final searchController =
-    Provider.of<SearchSheetController>(context, listen: false);
+        Provider.of<SearchSheetController>(context, listen: false);
     final TextEditingController textController = TextEditingController();
-    final String? hintText = DateFormat(TextConstants.searchHintDateFormat).format(DateTime.now());
+    final String hintText =
+        DateFormat(TextConstants.searchHintDateFormat).format(DateTime.now());
 
     showGeneralDialog(
       context: context,
@@ -292,27 +293,25 @@ class LeavesScreenAppBar extends StatelessWidget {
                     searchController.searchHistory.isEmpty
                         ? const Text(TextConstants.noRecentSearches)
                         : Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 8.0, bottom: 6),
-                          child: Text(TextConstants.searchHistory,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14)),
-                        ),
-                        ...searchController.searchHistory
-                            .map(
-                              (term) => ListTile(
-                            title: Text("$term..."),
-                            onTap: () {
-                              textController.text = term;
-                            },
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(left: 8.0, bottom: 6),
+                                child: Text(TextConstants.searchHistory,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14)),
+                              ),
+                              ...searchController.searchHistory.map(
+                                (term) => ListTile(
+                                  title: Text("$term..."),
+                                  onTap: () {
+                                    textController.text = term;
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
-                        )
-                            .toList(),
-                      ],
-                    ),
                   ],
                 ),
               ),
@@ -335,14 +334,14 @@ class LeavesScreenAppBar extends StatelessWidget {
   Route _createSlideRoute() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
-      const NotificationScreen(),
+          const NotificationScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.easeInOut;
 
         final tween =
-        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
           position: animation.drive(tween),

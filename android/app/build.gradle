@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.ziya_attendance_ui"
 
-    compileSdk = 35
+    compileSdk = 36
 
     ndkVersion = flutter.ndkVersion
 
@@ -23,8 +23,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.ziya_attendance_ui"
-        minSdk = 23
-        targetSdk = 33
+        minSdkVersion = flutter.minSdkVersion
+        targetSdk = 34
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }

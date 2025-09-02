@@ -5,14 +5,15 @@ class TextConstants {
   static const dashboard = "Dashboard";
   static const userField = "Full-stack Developer";
   static const centerYourFace = "Center your face";
-  static const checkVerifcnText = "point your face right at the box,\nthen take a photo";
+  static const checkVerifcnText =
+      "point your face right at the box,\nthen take a photo";
   static const haventCheckedText = "You haven't Checked-in yet";
   static const punchInSuccessFull = "Punch in successfully ";
   static const punchOutSuccessFull = "Punch out successfully ";
   static const checkedInText = "You are checked in at";
   static const checkedOutText = "You are checked out at ";
   static const remoteAttendance = "(for remote attendance)";
-  static const remoteALocationText= "Location/IP";
+  static const remoteALocationText = "Location/IP";
   static const profileImageUrl = "lib/assets/userProfile_image.jpg";
   static const presence = "Presence";
   static const absence = "Absence";
@@ -303,34 +304,55 @@ class TextConstants {
   static const String name = 'Name';
   static const String empIdNO = 'EMP00123';
   static const String department = 'Department';
-  static const  userDesignation= 'Full-Stack Developer';
-  static const  departmentName= 'Software Development Team';
+  static const userDesignation = 'Full-Stack Developer';
+  static const departmentName = 'Software Development Team';
   //notification screen
   static const String notificationTitle = "Notifications";
   static const missedPunch = 'Missed Punch';
-  static const missedPunchMessage = 'Missed Clock-in Detected. Please update your attendance or contact HR.';
-  static const missed ="missed";
+  static const missedPunchMessage =
+      'Missed Clock-in Detected. Please update your attendance or contact HR.';
+  static const missed = "missed";
 
   static const lateAttendance = 'Late Attendance';
-  static const lateAttendanceMessage = 'You’re running late! Your clock-in time is beyond the scheduled shift start.';
+  static const lateAttendanceMessage =
+      'You’re running late! Your clock-in time is beyond the scheduled shift start.';
 
   static const dailySummary = 'Daily Summary';
   static const summary = 'summary';
-  static const dailySummaryMessage = 'Your attendance today: Clock-in at 9:12 AM, Clock-out at 6:05 PM. Total hours: 8.53';
+  static const dailySummaryMessage =
+      'Your attendance today: Clock-in at 9:12 AM, Clock-out at 6:05 PM. Total hours: 8.53';
 
   static const leaveApproval = 'Leave Approval';
   static const approval = 'approval';
-  static const leaveApprovalMessage = 'Your leave request for June 15 has been approved. Enjoy your day off!';
+  static const leaveApprovalMessage =
+      'Your leave request for June 15 has been approved. Enjoy your day off!';
 
   static const leaveRejection = 'Leave Rejection';
   static const rejection = 'rejection';
-  static const leaveRejectionMessage = 'Leave request declined. Please check with your manager for details.';
+  static const leaveRejectionMessage =
+      'Leave request declined. Please check with your manager for details.';
 
   static const shiftUpdate = 'Shift Update';
   static const shift = 'shift';
-  static const shiftUpdateMessage = 'Shift updated: New shift time is 10:00 AM – 7:00 PM, effective from June 14.';
+  static const shiftUpdateMessage =
+      'Shift updated: New shift time is 10:00 AM – 7:00 PM, effective from June 14.';
   //search
   static const String noRecentSearches = "No recent searches.";
   static const String searchHintDateFormat = "dd MMMM yyyy";
   static const String checkInDateFormat = "dd-MMMM-yyyy";
+  //otpscreen
+  static const verifyCode = "Verify Code";
+  static const resendCode = "Resend code?";
+  static const continueText = "Continue";
+  static const otpVerified = "OTP Verified Successfully!";
+  static const emailInstruction = "Please enter the code we just sent to";
+  // Reset Password
+  static const resetTitle = "Create new password";
+  static const resetSubtitle =
+      "Enter your registered email address to reset your password.";
+  static const newPasswordHint = "New password";
+  static const confirmPasswordHint = "Confirm Password";
+  static const cancel = "Cancel";
+  static const resetPassword = "Reset Password";
+  static const resetSuccess = "Password reset successful!";
 }

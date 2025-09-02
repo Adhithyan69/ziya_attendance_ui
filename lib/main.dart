@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:ziya_attendance_ui/controller/auth_controllers/forgot_controller.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/login_controller.dart';
 import 'package:ziya_attendance_ui/controller/auth_controllers/signUp_controller.dart';
@@ -10,9 +12,11 @@ import 'package:ziya_attendance_ui/controller/dashboard_controllers/leave_dashbo
 import 'package:ziya_attendance_ui/controller/dashboard_controllers/leave_status_controller.dart';
 import 'package:ziya_attendance_ui/controller/dashboard_controllers/leaves_Request_controller.dart';
 import 'package:ziya_attendance_ui/controller/notification_controller.dart';
+import 'package:ziya_attendance_ui/controller/auth_controllers/otp_controller.dart';
 import 'package:ziya_attendance_ui/controller/profile_controller.dart';
 import 'package:ziya_attendance_ui/controller/search_controller.dart';
 import 'package:ziya_attendance_ui/controller/task_controller.dart';
+import 'package:ziya_attendance_ui/firebase_options.dart';
 import 'package:ziya_attendance_ui/views/authentication/signUp_screen.dart';
 import 'package:ziya_attendance_ui/views/bottom_navigationBar.dart';
 import 'controller/checkin_card_controller.dart';
@@ -22,7 +26,10 @@ import 'controller/dashboard_controllers/payslip_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
     MultiProvider(
       providers: [
@@ -35,12 +42,13 @@ void main() async {
         ChangeNotifierProvider(create: (context) => LeaveRequestController()),
         ChangeNotifierProvider(create: (context) => LeaveDashboardController()),
         ChangeNotifierProvider(create: (context) => AttendanceController()),
-        ChangeNotifierProvider(create: (context) =>HolidayController()),
-        ChangeNotifierProvider(create: (context) =>LeaveStatusController()),
-        ChangeNotifierProvider(create: (context) =>PayslipController()),
-        ChangeNotifierProvider(create: (context) =>ProfileController()),
-        ChangeNotifierProvider(create: (context) =>NotificationController()),
-        ChangeNotifierProvider(create: (context) =>SearchSheetController()),
+        ChangeNotifierProvider(create: (context) => HolidayController()),
+        ChangeNotifierProvider(create: (context) => LeaveStatusController()),
+        ChangeNotifierProvider(create: (context) => PayslipController()),
+        ChangeNotifierProvider(create: (context) => ProfileController()),
+        ChangeNotifierProvider(create: (context) => NotificationController()),
+        ChangeNotifierProvider(create: (context) => SearchSheetController()),
+        ChangeNotifierProvider(create: (context) => OtpController()),
       ],
       child: const MyApp(),
     ),
@@ -54,9 +62,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: user != null ? const BottomNavigation() : const SignUpPage(),
+    return ScreenUtilInit(
+      designSize: const Size(285, 393),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: user != null ? const BottomNavigation() : const SignUpPage(),
+        );
+      },
     );
   }
 }
